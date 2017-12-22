@@ -1,4 +1,4 @@
-package com.addhen.ppp;
+package com.addhen.ppp.data;
 
 import org.junit.Test;
 

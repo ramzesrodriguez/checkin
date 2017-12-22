@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+  compileSdkVersion versions.compileSdkVersion
+  defaultConfig {
+    minSdkVersion versions.minSdkVersion
+  }
+  lintOptions {
+    disable 'GradleCompatible'
+  }
+  compileOptions {
+    sourceCompatibility versions.sourceCompatibilityVersion
+    targetCompatibility versions.targetCompatibilityVersion
+  }
+}
+
+dependencies {
+  api deps.kotlin.stdLib.jre
+  api deps.timber
+  api deps.dagger
+}

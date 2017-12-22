@@ -1,32 +1,53 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
-    compileSdkVersion 26
-    defaultConfig {
-        applicationId "com.addhen.ppp"
-        minSdkVersion 23
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  compileSdkVersion versions.compileSdkVersion
+  buildToolsVersion versions.buildToolsVersion
+  defaultConfig {
+    applicationId "com.addhen.ppp"
+    minSdkVersion versions.minSdkVersion
+    targetSdkVersion versions.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  dexOptions {
+    preDexLibraries "true" != System.getenv("CI")
+  }
+  buildTypes {
+    release {
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+  }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+  implementation deps.kotlin.stdLib.jre
+  implementation deps.kotlin.coroutines
+  // Support library
+  implementation deps.design
+  implementation deps.recyclerView
+  implementation deps.constraintLayout
+  // Architecture components
+  implementation deps.archRuntime
+  implementation deps.archExtentions
+  // Utility
+  implementation deps.dagger
+  implementation deps.daggerAndroid
+  implementation deps.daggerAndroidSupport
+  // Annotation processors
+  kapt deps.dataBindingCompiler
+  kapt deps.daggerCompiler
+  kapt deps.daggerAndroidProcessor
+  kapt deps.archCompiler
+  debugImplementation deps.leakcanary
+  releaseImplementation deps.leakcanaryNoOp
+  // Tests
+  testImplementation deps.junit
 }
