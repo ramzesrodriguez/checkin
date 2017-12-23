@@ -16,25 +16,29 @@ buildscript {
                   'dagger'                    : '2.14.1',
                   'archComponents'            : '1.0.0',
                   'timber'                    : '4.6.0',
-                  'junit'                     : '4.12']
-  ext.deps = ['kotlin'                : ['stdLib'    : ['jre': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"],
-                                         'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"],
-              'design'                : "com.android.support:design:${versions.supportLibrary}",
-              'recyclerView'          : "com.android.support:recyclerview-v7:${versions.supportLibrary}",
-              'timber'                : "com.jakewharton.timber:timber:${versions.timber}",
-              'archRuntime'           : "android.arch.lifecycle:runtime:${versions.archComponents}",
-              'archExtentions'        : "android.arch.lifecycle:extensions:${versions.archComponents}",
-              'archCompiler'          : "android.arch.lifecycle:compiler:${versions.archComponents}",
-              'dataBindingCompiler'   : "com.android.databinding:compiler:${versions.gradlePlugin}",
-              'dagger'                : "com.google.dagger:dagger:${versions.dagger}",
-              'daggerAndroid'         : "com.google.dagger:dagger-android:${versions.dagger}",
-              'daggerAndroidSupport'  : "com.google.dagger:dagger-android-support:${versions.dagger}",
-              'daggerCompiler'        : "com.google.dagger:dagger-compiler:${versions.dagger}",
-              'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:${versions.dagger}",
-              'constraintLayout'      : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
-              'leakcanary'            : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
-              'leakcanaryNoOp'        : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",
-              'junit'                 : "junit:junit:${versions.junit}"]
+                  'junit'                     : '4.12',
+                  'firebase'                  : '9.8.0']
+  ext.commonDeps =
+      ['kotlin'                : ['stdLib'    : ['jre': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"],
+                                  'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"],
+       'dagger'                : "com.google.dagger:dagger:${versions.dagger}",
+       'daggerAndroid'         : "com.google.dagger:dagger-android:${versions.dagger}",
+       'daggerAndroidSupport'  : "com.google.dagger:dagger-android-support:${versions.dagger}",
+       'daggerCompiler'        : "com.google.dagger:dagger-compiler:${versions.dagger}",
+       'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:${versions.dagger}",
+       'timber'                : "com.jakewharton.timber:timber:${versions.timber}",
+       'junit'                 : "junit:junit:${versions.junit}"]
+  ext.appDeps = ['design'             : "com.android.support:design:${versions.supportLibrary}",
+                 'recyclerView'       : "com.android.support:recyclerview-v7:${versions.supportLibrary}",
+                 'archRuntime'        : "android.arch.lifecycle:runtime:${versions.archComponents}",
+                 'archExtentions'     : "android.arch.lifecycle:extensions:${versions.archComponents}",
+                 'archCompiler'       : "android.arch.lifecycle:compiler:${versions.archComponents}",
+                 'dataBindingCompiler': "com.android.databinding:compiler:${versions.gradlePlugin}",
+                 'constraintLayout'   : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+                 'leakcanary'         : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
+                 'leakcanaryNoOp'     : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",]
+  ext.dataDeps = ['firebaseCore'    : "com.google.firebase:firebase-core:${versions.firebase}",
+                  'firebaseDatabase': "com.google.firebase:firebase-database:${versions.firebase}"]
   repositories {
     google()
     jcenter()

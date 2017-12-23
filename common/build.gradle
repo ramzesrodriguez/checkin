@@ -16,7 +16,14 @@ android {
 }
 
 dependencies {
-  api deps.kotlin.stdLib.jre
-  api deps.timber
-  api deps.dagger
+  api commonDeps.kotlin.stdLib.jre
+  // Architecture components
+  api appDeps.archRuntime
+  api appDeps.archExtentions
+  // Utility
+  api commonDeps.dagger
+  api commonDeps.daggerAndroid
+  api commonDeps.daggerAndroidSupport
+  api commonDeps.timber
+  api commonDeps.dagger
 }

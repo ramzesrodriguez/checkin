@@ -18,6 +18,6 @@ android {
 
 dependencies {
   api project(':common')
-  kapt deps.daggerCompiler
-  testImplementation deps.junit
+  kapt commonDeps.daggerCompiler
+  testImplementation commonDeps.junit
 }

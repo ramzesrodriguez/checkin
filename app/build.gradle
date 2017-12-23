@@ -28,26 +28,20 @@ android {
 }
 
 dependencies {
-  implementation deps.kotlin.stdLib.jre
-  implementation deps.kotlin.coroutines
+  api project(':common')
+  api project(':data')
+  implementation commonDeps.kotlin.stdLib.jre
+  implementation commonDeps.kotlin.coroutines
   // Support library
-  implementation deps.design
-  implementation deps.recyclerView
-  implementation deps.constraintLayout
-  // Architecture components
-  implementation deps.archRuntime
-  implementation deps.archExtentions
-  // Utility
-  implementation deps.dagger
-  implementation deps.daggerAndroid
-  implementation deps.daggerAndroidSupport
+  implementation appDeps.design
+  implementation appDeps.recyclerView
+  implementation appDeps.constraintLayout
   // Annotation processors
-  kapt deps.dataBindingCompiler
-  kapt deps.daggerCompiler
-  kapt deps.daggerAndroidProcessor
-  kapt deps.archCompiler
-  debugImplementation deps.leakcanary
-  releaseImplementation deps.leakcanaryNoOp
+  kapt appDeps.dataBindingCompiler
+  kapt commonDeps.daggerCompiler
+  kapt appDeps.archCompiler
+  debugImplementation appDeps.leakcanary
+  releaseImplementation appDeps.leakcanaryNoOp
   // Tests
-  testImplementation deps.junit
+  testImplementation commonDeps.junit
 }
