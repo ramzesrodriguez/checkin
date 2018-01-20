@@ -5,7 +5,6 @@ android {
     compileSdkVersion versions.compileSdkVersion
     defaultConfig {
         minSdkVersion versions.minSdkVersion
-        targetSdkVersion versions.targetSdkVersion
     }
     lintOptions {
         disable 'GradleCompatible'
@@ -17,7 +16,13 @@ android {
 }
 
 dependencies {
-    api project(':base')
-    kapt deps.dagger.compiler
-    testImplementation deps.junit
+    api deps.kotlin.stdLib.jre
+    // Architecture components lifecycle
+    api deps.lifecycle.runtime
+    api deps.lifecycle.extentions
+    // Utility
+    api deps.dagger.core
+    api deps.dagger.android
+    api deps.dagger.support
+    api deps.timber
 }
