@@ -2,22 +2,22 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion versions.compileSdkVersion
-    defaultConfig {
-        minSdkVersion versions.minSdkVersion
-        targetSdkVersion versions.targetSdkVersion
-    }
-    lintOptions {
-        disable 'GradleCompatible'
-    }
-    compileOptions {
-        sourceCompatibility versions.sourceCompatibilityVersion
-        targetCompatibility versions.targetCompatibilityVersion
-    }
+  compileSdkVersion versions.compileSdkVersion
+  defaultConfig {
+    minSdkVersion versions.minSdkVersion
+    targetSdkVersion versions.targetSdkVersion
+  }
+  lintOptions {
+    disable 'GradleCompatible'
+  }
+  compileOptions {
+    sourceCompatibility versions.sourceCompatibilityVersion
+    targetCompatibility versions.targetCompatibilityVersion
+  }
 }
 
 dependencies {
-    api project(':base')
-    kapt deps.dagger.compiler
-    testImplementation deps.junit
+  api project(':base')
+  kapt deps.dagger.compiler
+  testImplementation deps.junit
 }

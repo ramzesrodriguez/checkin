@@ -28,19 +28,19 @@ import com.addhen.ppp.data.model.Category
 
 class FirebaseDataSource {
 
-  fun getCategories(): List<Category> {
-    TODO("not implemented")
-  }
+    fun getCategories(): List<Category> {
+        TODO("not implemented")
+    }
 
-  fun getCategory(key: String): Category {
-    TODO("not implemented")
-  }
+    fun getCategory(key: String): Category {
+        TODO("not implemented")
+    }
 
-  fun putCategory(category: Category) {
-    TODO("not implemented")
-  }
+    fun putCategory(category: Category) {
+        TODO("not implemented")
+    }
 
-  fun deleteCategory(key: String) {
-    TODO("not implemented")
-  }
+    fun deleteCategory(key: String) {
+        TODO("not implemented")
+    }
 }

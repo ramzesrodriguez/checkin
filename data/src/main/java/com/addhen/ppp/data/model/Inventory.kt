@@ -24,7 +24,7 @@
 
 package com.addhen.ppp.data.model
 
-import java.util.Date
+import java.util.*
 
 data class Inventory(val key: String, val item: String, val price: Float, val quantity: Quantity,
-    val note: String, val category: Category, val expiryDate: Date)
+                     val note: String, val category: Category, val expiryDate: Date)

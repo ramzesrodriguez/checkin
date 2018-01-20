@@ -5,43 +5,43 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
-    compileSdkVersion versions.compileSdkVersion
-    buildToolsVersion versions.buildToolsVersion
-    defaultConfig {
-        applicationId "com.addhen.ppp"
-        minSdkVersion versions.minSdkVersion
-        targetSdkVersion versions.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  compileSdkVersion versions.compileSdkVersion
+  buildToolsVersion versions.buildToolsVersion
+  defaultConfig {
+    applicationId "com.addhen.ppp"
+    minSdkVersion versions.minSdkVersion
+    targetSdkVersion versions.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  dexOptions {
+    preDexLibraries "true" != System.getenv("CI")
+  }
+  buildTypes {
+    release {
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    dexOptions {
-        preDexLibraries "true" != System.getenv("CI")
-    }
-    buildTypes {
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+  }
 }
 
 dependencies {
-    api project(':base')
-    api project(':data')
-    implementation deps.kotlin.stdLib.jre
-    implementation deps.kotlin.coroutines
-    // Support library
-    implementation deps.support.design
-    implementation deps.support.recyclerView
-    implementation deps.support.constraintLayout
-    // Annotation processors
-    kapt deps.databinding.compiler
-    kapt deps.dagger.compiler
-    kapt deps.lifecycle.compiler
-    debugImplementation deps.leakcanary.op
-    releaseImplementation deps.leakcanary.noOp
-    // Tests
-    testImplementation deps.junit
+  api project(':base')
+  api project(':data')
+  implementation deps.kotlin.stdLib.jre
+  implementation deps.kotlin.coroutines
+  // Support library
+  implementation deps.support.design
+  implementation deps.support.recyclerView
+  implementation deps.support.constraintLayout
+  // Annotation processors
+  kapt deps.databinding.compiler
+  kapt deps.dagger.compiler
+  kapt deps.lifecycle.compiler
+  debugImplementation deps.leakcanary.op
+  releaseImplementation deps.leakcanary.noOp
+  // Tests
+  testImplementation deps.junit
 }

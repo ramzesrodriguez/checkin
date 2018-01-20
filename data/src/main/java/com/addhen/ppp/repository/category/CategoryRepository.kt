@@ -28,8 +28,8 @@ import com.addhen.ppp.data.model.Category
 
 interface CategoryRepository {
 
-  fun getCategories(): List<Category>
-  fun getCategory(key: String): Category
-  fun putCategory(category: Category)
-  fun deleteCategory(key: String)
+    fun getCategories(): List<Category>
+    fun getCategory(key: String): Category
+    fun putCategory(category: Category)
+    fun deleteCategory(key: String)
 }
