@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-  api project(':common')
+  api project(':base')
   api project(':data')
   implementation commonDeps.kotlin.stdLib.jre
   implementation commonDeps.kotlin.coroutines
