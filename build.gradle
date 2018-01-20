@@ -17,7 +17,9 @@ buildscript {
                   archComponents            : '1.0.0',
                   timber                    : '4.6.0',
                   junit                     : '4.12',
-                  firebase                  : '9.8.0']
+                  firebase                  : '9.8.0',
+                  ktlint                    : '0.14.0',
+                  ktlintGradle              : '3.0.0',]
   ext.deps = [
     kotlin     : [
       stdLib    : [
@@ -60,12 +62,13 @@ buildscript {
   repositories {
     google()
     jcenter()
+    maven { url "https://plugins.gradle.org/m2/" }
   }
   dependencies {
-    classpath "com.android.tools.build:gradle:${versions.gradlePlugin}"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+    classpath "com.android.tools.build:gradle:$versions.gradlePlugin"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
     classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
-
+    classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlintGradle"
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
   }
