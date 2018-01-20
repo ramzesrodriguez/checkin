@@ -1,71 +1,72 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-  ext.versions = ['kotlin'                    : '1.2.0',
-                  'coroutines'                : '0.18',
-                  'gradlePlugin'              : '3.0.1',
-                  'minSdkVersion'             : 23,
-                  'targetSdkVersion'          : 27,
-                  'compileSdkVersion'         : 27,
-                  'buildToolsVersion'         : '26.0.2',
-                  'supportLibrary'            : '27.0.2',
-                  'constraintLayout'          : '1.0.2',
-                  'leakcanary'                : '1.5.4',
-                  'sourceCompatibilityVersion': JavaVersion.VERSION_1_8,
-                  'targetCompatibilityVersion': JavaVersion.VERSION_1_8,
-                  'dagger'                    : '2.14.1',
-                  'archComponents'            : '1.0.0',
-                  'timber'                    : '4.6.0',
-                  'junit'                     : '4.12',
-                  'firebase'                  : '9.8.0']
-  ext.commonDeps =
-      ['kotlin'                : ['stdLib'    : ['jre': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"],
-                                  'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"],
-       'dagger'                : "com.google.dagger:dagger:${versions.dagger}",
-       'daggerAndroid'         : "com.google.dagger:dagger-android:${versions.dagger}",
-       'daggerAndroidSupport'  : "com.google.dagger:dagger-android-support:${versions.dagger}",
-       'daggerCompiler'        : "com.google.dagger:dagger-compiler:${versions.dagger}",
-       'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:${versions.dagger}",
-       'timber'                : "com.jakewharton.timber:timber:${versions.timber}",
-       'junit'                 : "junit:junit:${versions.junit}"]
-  ext.appDeps = ['design'             : "com.android.support:design:${versions.supportLibrary}",
-                 'recyclerView'       : "com.android.support:recyclerview-v7:${versions.supportLibrary}",
-                 'archRuntime'        : "android.arch.lifecycle:runtime:${versions.archComponents}",
-                 'archExtentions'     : "android.arch.lifecycle:extensions:${versions.archComponents}",
-                 'archCompiler'       : "android.arch.lifecycle:compiler:${versions.archComponents}",
-                 'dataBindingCompiler': "com.android.databinding:compiler:${versions.gradlePlugin}",
-                 'constraintLayout'   : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
-                 'leakcanary'         : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
-                 'leakcanaryNoOp'     : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",]
-  ext.dataDeps = ['firebaseCore'    : "com.google.firebase:firebase-core:${versions.firebase}",
-                  'firebaseDatabase': "com.google.firebase:firebase-database:${versions.firebase}"]
-  repositories {
-    google()
-    jcenter()
-  }
-  dependencies {
-    classpath "com.android.tools.build:gradle:${versions.gradlePlugin}"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-    classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
+    ext.versions = ['kotlin'                    : '1.2.20',
+                    'coroutines'                : '0.18',
+                    'gradlePlugin'              : '3.0.1',
+                    'minSdkVersion'             : 23,
+                    'targetSdkVersion'          : 27,
+                    'compileSdkVersion'         : 27,
+                    'buildToolsVersion'         : '26.0.2',
+                    'supportLibrary'            : '27.0.2',
+                    'constraintLayout'          : '1.0.2',
+                    'leakcanary'                : '1.5.4',
+                    'sourceCompatibilityVersion': JavaVersion.VERSION_1_8,
+                    'targetCompatibilityVersion': JavaVersion.VERSION_1_8,
+                    'dagger'                    : '2.14.1',
+                    'archComponents'            : '1.0.0',
+                    'timber'                    : '4.6.0',
+                    'junit'                     : '4.12',
+                    'firebase'                  : '9.8.0']
+    ext.commonDeps =
+            ['kotlin'                : ['stdLib'    : ['jre': "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"],
+                                        'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"],
+             'dagger'                : "com.google.dagger:dagger:${versions.dagger}",
+             'daggerAndroid'         : "com.google.dagger:dagger-android:${versions.dagger}",
+             'daggerAndroidSupport'  : "com.google.dagger:dagger-android-support:${versions.dagger}",
+             'daggerCompiler'        : "com.google.dagger:dagger-compiler:${versions.dagger}",
+             'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:${versions.dagger}",
+             'timber'                : "com.jakewharton.timber:timber:${versions.timber}",
+             'junit'                 : "junit:junit:${versions.junit}"]
+    ext.appDeps = ['design'             : "com.android.support:design:${versions.supportLibrary}",
+                   'recyclerView'       : "com.android.support:recyclerview-v7:${versions.supportLibrary}",
+                   'archRuntime'        : "android.arch.lifecycle:runtime:${versions.archComponents}",
+                   'archExtentions'     : "android.arch.lifecycle:extensions:${versions.archComponents}",
+                   'archCompiler'       : "android.arch.lifecycle:compiler:${versions.archComponents}",
+                   'dataBindingCompiler': "com.android.databinding:compiler:${versions.gradlePlugin}",
+                   'constraintLayout'   : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+                   'leakcanary'         : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
+                   'leakcanaryNoOp'     : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",]
+    ext.dataDeps = ['firebaseCore'    : "com.google.firebase:firebase-core:${versions.firebase}",
+                    'firebaseDatabase': "com.google.firebase:firebase-database:${versions.firebase}"]
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:${versions.gradlePlugin}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
 
-    // NOTE: Do not place your application dependencies here; they belong
-    // in the individual module build.gradle files
-  }
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
 }
 
 allprojects {
-  repositories {
-    google()
-    jcenter()
-  }
-
-  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-    kotlinOptions {
-      jvmTarget = "1.8"
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
     }
-  }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
 }
 
 task clean(type: Delete) {
-  delete rootProject.buildDir
+    delete rootProject.buildDir
 }
