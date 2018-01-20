@@ -1,11 +1,95 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:visibility">visible</item>
     </style>
 
+    <style name="Fab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/view_space_16dp</item>
+        <item name="android:layout_gravity">bottom|right</item>
+        <item name="android:gravity">bottom|right</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:paddingStart">@dimen/view_space_16dp</item>
+        <item name="android:paddingEnd">@dimen/view_space_16dp</item>
+    </style>
+    <style name="Toolbar" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/color_primary</item>
+        <item name="android:theme">@style/ActionBarThemeOverlay</item>
+        <item name="elevation">@dimen/app_bar_elevation_2dp</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+    <!-- Form Widgets -->
+    <style name="EditText" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">text</item>
+        <item name="android:layout_marginStart">@dimen/view_space_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/view_space_16dp</item>
+    </style>
+    <style name="EditText.NoSuggestions">
+        <item name="android:inputType">textFilter|textNoSuggestions</item>
+    </style>
+
+    <style name="EditText.Number">
+        <item name="android:inputType">number</item>
+    </style>
+    <style name="EditText.Name">
+        <item name="android:inputType">textPersonName|textCapWords</item>
+    </style>
+    <style name="EditText.NumberSetter">
+        <item name="android:inputType">number</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    <style name="EditText.Decimal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+    <style name="EditText.ReadOnly">
+        <item name="android:inputType">none</item>
+    </style>
+    <style name="Spinner" parent="@style/Widget.AppCompat.Spinner">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:paddingStart">@dimen/view_space_16dp</item>
+        <item name="android:paddingEnd">@dimen/view_space_16dp</item>
+    </style>
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color_accent</item>
+    </style>
+    <style name="CreateCategoryAlertDialog" parent="AppTheme.AlertDialog">
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogNegativeButton</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogPositiveButton</item>
+    </style>
+
+    <style name="AlertDialogPositiveButton"
+           parent="android:Widget.DeviceDefault.Button.Borderless">
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+    <style name="AlertDialogNegativeButton"
+           parent="android:Widget.DeviceDefault.Button.Borderless">
+        <item name="android:textColor">@color/color_accent</item>
+    </style>
+    <style name="Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="Button.Borderless" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/view_space_8dp</item>
+    </style>
 </resources>

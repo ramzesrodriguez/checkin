@@ -1,0 +1,15 @@
+<resources>
+  <!-- Spacing between views -->
+  <dimen name="view_space_24dp">24dp</dimen>
+  <dimen name="view_space_16dp">16dp</dimen>
+  <dimen name="view_space_8dp">8dp</dimen>
+  <dimen name="text_size_12sp">12sp</dimen>
+  <dimen name="text_size_14sp">14sp</dimen>
+  <dimen name="text_size_18sp">18sp</dimen>
+  <dimen name="text_size_20sp">20sp</dimen>
+  <!-- Floating action button -->
+  <dimen name="fab_margin_16dp">16dp</dimen>
+  <dimen name="fab_pressed_zip_12dp">12dp</dimen>
+  <dimen name="app_bar_elevation_2dp">2dp</dimen>
+  <dimen name="status_color_bar_4pd">4dp</dimen>
+</resources>
