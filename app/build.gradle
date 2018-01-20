@@ -27,6 +27,10 @@ android {
   }
 }
 
+kapt {
+  useBuildCache = true
+}
+
 dependencies {
   api project(':base')
   api project(':data')
