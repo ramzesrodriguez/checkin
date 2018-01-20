@@ -11,6 +11,7 @@ android {
     applicationId "com.addhen.ppp"
     minSdkVersion versions.minSdkVersion
     targetSdkVersion versions.targetSdkVersion
+    archivesBaseName = "${project.name}-${versionName}"
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
