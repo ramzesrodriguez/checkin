@@ -4,17 +4,20 @@ apply plugin: "org.jlleitschuh.gradle.ktlint"
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.getkeepsafe.dexcount'
 
+def env = "env"
 android {
   compileSdkVersion versions.compileSdkVersion
   buildToolsVersion versions.buildToolsVersion
+  dataBinding.enabled = true
   defaultConfig {
-    applicationId "com.addhen.ppp"
+    applicationId application.id
     minSdkVersion versions.minSdkVersion
     targetSdkVersion versions.targetSdkVersion
     archivesBaseName = "${project.name}-${versionName}"
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    vectorDrawables.useSupportLibrary = true
   }
   dexOptions {
     preDexLibraries "true" != System.getenv("CI")
@@ -24,6 +27,29 @@ android {
       minifyEnabled true
       shrinkResources true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  lintOptions {
+    lintConfig file('lint.xml')
+    textReport true
+    textOutput 'stdout'
+  }
+
+  flavorDimensions env
+
+  productFlavors {
+    development {
+      dimension env
+      applicationId application.id + '.dev'
+      testApplicationId application.id + 'dev.test'
+      // Specify devel base URL. Always end it with the trailing slash because the HTTP client
+      // expects it.
+      def baseUrl = "http://scan-mock.com/"
+      buildConfigField "String", "BASE_URL", "\"${baseUrl}\""
+    }
+
+    production {
+      dimension env
     }
   }
 }
@@ -43,11 +69,15 @@ dependencies {
   api project(':base')
   api project(':data')
   implementation deps.kotlin.stdLib.jre
-  implementation deps.kotlin.coroutines
   // Support library
   implementation deps.support.design
   implementation deps.support.recyclerView
   implementation deps.support.constraintLayout
+  // Firebase
+  implementation deps.firebase.uiAuth
+  // Google maps
+  implementation deps.map.google
+  implementation deps.map.utils
   // Annotation processors
   kapt deps.databinding.compiler
   kapt deps.dagger.compiler
@@ -57,3 +87,6 @@ dependencies {
   // Tests
   testImplementation deps.junit
 }
+
+// MUST BE AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'

@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+  ext.application = [id: 'com.addhen.checkin']
   ext.versions = [kotlin                    : '1.2.20',
-                  coroutines                : '0.18',
                   gradlePlugin              : '3.0.1',
                   minSdkVersion             : 23,
                   targetSdkVersion          : 27,
@@ -17,47 +17,53 @@ buildscript {
                   archComponents            : '1.0.0',
                   timber                    : '4.6.0',
                   junit                     : '4.12',
-                  firebase                  : '11.6.2',
+                  firebase                  : '3.2.1',
                   ktlint                    : '0.14.0',
                   ktlintGradle              : '3.0.0',]
   ext.deps = [
-    kotlin     : [
-      stdLib    : [
-        jre: "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+      kotlin     : [
+          stdLib: [
+              jre: "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+          ],
       ],
-      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
-    ],
-    support    : [
-      design            : "com.android.support:design:$versions.supportLibrary",
-      recyclerView      : "com.android.support:recyclerview-v7:$versions.supportLibrary",
-      'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
-    ],
-    lifecycle  : [
-      runtime   : "android.arch.lifecycle:runtime:$versions.archComponents",
-      extentions: "android.arch.lifecycle:extensions:$versions.archComponents",
-      compiler  : "android.arch.lifecycle:compiler:$versions.archComponents",
-    ],
-    databinding: [
-      compiler: "com.android.databinding:compiler:$versions.gradlePlugin",
-    ],
-    leakcanary : [
-      op  : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
-      noOp: "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary",
-    ],
-    firebase   : [
-      core     : "com.google.firebase:firebase-core:$versions.firebase",
-      firestore: "com.google.firebase:firebase-firestore:$versions.firebase",
-      auth     : "com.google.firebase:firebase-auth:$versions.firebase",
-    ],
-    dagger     : [
-      core       : "com.google.dagger:dagger:$versions.dagger",
-      'android'  : "com.google.dagger:dagger-android:$versions.dagger",
-      'support'  : "com.google.dagger:dagger-android-support:$versions.dagger",
-      'compiler' : "com.google.dagger:dagger-compiler:${versions.dagger}",
-      'processor': "com.google.dagger:dagger-android-processor:$versions.dagger"
-    ],
-    'timber'   : "com.jakewharton.timber:timber:$versions.timber",
-    'junit'    : "junit:junit:$versions.junit"
+      support    : [
+          design            : "com.android.support:design:$versions.supportLibrary",
+          recyclerView      : "com.android.support:recyclerview-v7:$versions.supportLibrary",
+          'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
+      ],
+      lifecycle  : [
+          runtime   : "android.arch.lifecycle:runtime:$versions.archComponents",
+          extentions: "android.arch.lifecycle:extensions:$versions.archComponents",
+          compiler  : "android.arch.lifecycle:compiler:$versions.archComponents",
+      ],
+      rxjava2    : [
+          core   : "io.reactivex.rxjava2:rxjava:2.1.8",
+          android: "io.reactivex.rxjava2:rxandroid:2.0.1",
+          kotlin : "io.reactivex.rxjava2:rxkotlin:2.2.0",
+      ],
+      databinding: [
+          compiler: "com.android.databinding:compiler:$versions.gradlePlugin",
+      ],
+      leakcanary : [
+          op  : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+          noOp: "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary",
+      ],
+      firebase   : [
+          uiAuth: "com.firebaseui:firebase-ui-auth:$versions.firebase",
+      ],
+      map        : [
+          google: "com.google.android.gms:play-services-maps:11.8.0",
+          utils : "com.google.maps.android:android-maps-utils:0.5",
+      ],
+      dagger     : [
+          core       : "com.google.dagger:dagger:$versions.dagger",
+          'android'  : "com.google.dagger:dagger-android:$versions.dagger",
+          'support'  : "com.google.dagger:dagger-android-support:$versions.dagger",
+          'compiler' : "com.google.dagger:dagger-compiler:${versions.dagger}",
+          'processor': "com.google.dagger:dagger-android-processor:$versions.dagger"
+      ],
+      'timber'   : "com.jakewharton.timber:timber:$versions.timber",
+      'junit'    : "junit:junit:$versions.junit"
   ]
   repositories {
     google()
@@ -68,6 +74,7 @@ buildscript {
     classpath "com.android.tools.build:gradle:$versions.gradlePlugin"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
     classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
+    classpath 'com.google.gms:google-services:3.1.1'
     classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlintGradle"
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files

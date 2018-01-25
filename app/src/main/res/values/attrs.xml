@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <attr format="reference|color" name="frsColorDivider"/>
+  <attr format="reference|color" name="frsColorBackgroundCard"/>
+  <!-- Color Arrays -->
+  <attr format="reference" name="colorsProgressBar"/>
+  <!-- Drawables -->
+  <attr format="reference" name="drawableDropdown"/>
+</resources>

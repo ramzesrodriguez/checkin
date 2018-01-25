@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="PostActionButton" parent="@style/Widget.AppCompat.Button">
+    <item name="android:gravity">center_horizontal</item>
+    <item name="android:textAppearance">@style/TextCaption</item>
+    <item name="android:drawablePadding">@dimen/space_4dp</item>
+    <item name="android:background">?selectableItemBackgroundBorderless</item>
+  </style>
+
+  <style name="FloatLabelHint" parent="PostMetaTextCaption">
+    <item name="android:textSize">@dimen/text_14sp</item>
+    <item name="android:textColor">?colorAccent</item>
+  </style>
+
+  <style name="PostDetailsEmptyView" parent="BaseEmptyView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+  </style>
+</resources>

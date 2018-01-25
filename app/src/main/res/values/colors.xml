@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">#E91E63</color>
-    <color name="color_primary_dark">#C2185B</color>
-    <color name="color_accent">#03A9F4</color>
-    <color name="text_dark">#5A5454</color>
-    <color name="text_light">#727272</color>
-    <color name="lipstick">#E91E63</color>
-    <color name="mid_green">#4CAF50</color>
-    <color name="sunshine_yellow">#FFEB3B</color>
-    <color name="blue_dark">#0288D1</color>
-    <color name="progress_background">#E91E63</color>
-    <color name="progress_background_dark">#C2185B</color>
-    <color name="progress_done">#03A9F4</color>
+  <!-- Theme & Accent -->
+  <color name="theme">@color/red</color>
+  <color name="dark_theme">@color/dark_red</color>
+  <color name="accent">@color/black</color>
+  <!-- Toolbar-->
+  <color name="toolbar_background">@color/theme</color>
+  <color name="toolbar_text">@color/white</color>
+  <color name="toolbar_sub_text">@color/white</color>
+  <!-- Navigation -->
+  <color name="nav_background">@color/white</color>
+  <color name="nav_active">@color/theme</color>
+  <color name="nav_inactive">@color/grey400</color>
+  <!-- Progressbar -->
+  <integer-array name="progressBarColors">
+    <item>@color/theme</item>
+    <item>@color/accent</item>
+  </integer-array>
+  <!-- Auth -->
+  <color name="errorColor">@color/grey500</color>
+  <!-- Empty view -->
+  <color name="empty_view_text">@color/black_alpha_9</color>
 </resources>

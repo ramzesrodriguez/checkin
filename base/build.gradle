@@ -21,6 +21,9 @@ dependencies {
   api deps.lifecycle.runtime
   api deps.lifecycle.extentions
   // Utility
+  api deps.rxjava2.core
+  api deps.rxjava2.kotlin
+  implementation deps.rxjava2.android
   api deps.dagger.core
   api deps.dagger.android
   api deps.dagger.support
