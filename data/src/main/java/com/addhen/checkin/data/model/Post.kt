@@ -20,12 +20,12 @@ package com.addhen.checkin.data.model
 import java.util.Date
 
 class Post(
+    val id: String,
     val content: String,
     val photo: String,
-    val latitude: Double,
-    val longitude: Double,
-    val locationName: String,
+    val location: Location,
     val created: Date,
     val likes: Long,
+    val like: Like,
     val user: User
 )

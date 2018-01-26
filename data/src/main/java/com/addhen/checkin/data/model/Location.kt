@@ -17,9 +17,8 @@
 
 package com.addhen.checkin.data.model
 
-data class User(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val email: String,
-    val username: String)
+data class Location(
+    val latitude: Double,
+    val longitude: Double,
+    val name: String,
+    val country: String)

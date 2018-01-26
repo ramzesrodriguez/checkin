@@ -15,11 +15,23 @@
  *
  */
 
-package com.addhen.checkin.data.model
+package com.addhen.checkin.view.posts
 
-data class User(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val email: String,
-    val username: String)
+import com.addhen.checkin.data.model.Post
+import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
+import javax.inject.Inject
+
+class PostItemViewModel @Inject constructor(val post: Post) : BaseViewModel() {
+
+
+  fun onClickPost() {
+    // TODO navigate to post details page
+  }
+
+  fun isLiked(): Boolean {
+    return if (post.like != null)
+      post.like.postId === post.id && post.user.id === post.like.userId
+    else
+      false
+  }
+}

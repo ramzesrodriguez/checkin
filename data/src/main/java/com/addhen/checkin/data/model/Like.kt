@@ -17,9 +17,4 @@
 
 package com.addhen.checkin.data.model
 
-data class User(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val email: String,
-    val username: String)
+data class Like(val postId: String, val userId: String)

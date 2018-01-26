@@ -15,11 +15,6 @@
  *
  */
 
-package com.addhen.checkin.data.model
+package com.addhen.checkin.view.posts
 
-data class User(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val email: String,
-    val username: String)
+class PostsFragment

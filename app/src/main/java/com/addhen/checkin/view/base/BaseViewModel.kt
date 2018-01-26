@@ -29,7 +29,7 @@ open class BaseViewModel : ViewModel(), RxJavaExt {
 
   override var compositeDisposable = CompositeDisposable()
 
-  open fun onResume() {
+  open fun onCreate() {
     if (compositeDisposable.isDisposed) {
       compositeDisposable = CompositeDisposable()
     }

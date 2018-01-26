@@ -26,6 +26,8 @@ import javax.inject.Singleton
 @Singleton
 class PostDataRepository @Inject constructor() : PostRepository {
 
+  fun getPosts() = getPosts(10, 0)
+
   override fun getPosts(limit: Int, page: Int): Flowable<List<Post>> {
     // TODO get data from a data source
     return Flowable.just(emptyList())
