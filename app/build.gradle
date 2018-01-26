@@ -7,7 +7,6 @@ apply plugin: 'com.getkeepsafe.dexcount'
 def env = "env"
 android {
   compileSdkVersion versions.compileSdkVersion
-  buildToolsVersion versions.buildToolsVersion
   dataBinding.enabled = true
   defaultConfig {
     applicationId application.id
