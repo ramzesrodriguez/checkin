@@ -41,12 +41,6 @@ fun setButtonDrawableRes(button: ImageButton,
   button.setImageDrawable(ContextCompat.getDrawable(button.context, drawableResId))
 }
 
-@BindingAdapter(value = ["imageDrawableRes"])
-fun setImageDrawableRes(imageView: ImageView,
-                        @DrawableRes drawableResId: Int) {
-  imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, drawableResId))
-}
-
 @BindingAdapter(value = ["photoImageUrl"])
 fun setPhotoImageUrl(imageView: ImageView, imageUrl: String?) {
   setImageUrl(imageView, imageUrl, R.color.grey200)

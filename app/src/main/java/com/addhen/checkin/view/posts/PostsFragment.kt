@@ -17,4 +17,66 @@
 
 package com.addhen.checkin.view.posts
 
-class PostsFragment
+import android.arch.lifecycle.Observer
+import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.addhen.checkin.databinding.FragmentPostsBinding
+import com.addhen.checkin.util.RxScheduler
+import com.addhen.checkin.view.base.BaseFragment
+import com.addhen.checkin.view.base.Resource
+import javax.inject.Inject
+
+
+class PostsFragment : BaseFragment<PostsViewModel, FragmentPostsBinding>(
+    clazz = PostsViewModel::class.java) {
+
+  @Inject
+  lateinit var rxScheduler: RxScheduler
+
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                            savedInstanceState: Bundle?): View? {
+    binding = FragmentPostsBinding.inflate(layoutInflater, container, false)
+    return binding.root
+  }
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    initView()
+  }
+
+  private fun initView() {
+    val postsAdapter = PostsAdapter(this.context!!, rxScheduler)
+    binding.postsRecyclerView.adapter = postsAdapter
+    val linearLayoutManager = object : LinearLayoutManager(context) {
+      override fun getExtraLayoutSpace(state: RecyclerView.State) = 300
+    }
+    binding.postsRecyclerView.layoutManager = linearLayoutManager
+    viewModel.posts.observe(this, Observer {
+      when (it?.status) {
+        Resource.Status.SUCCESS -> {
+          binding.swipeRefreshLayout.isRefreshing = false
+          val list = viewModel.posts.value?.data ?: emptyList()
+          val visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+          binding.emptyViewHeader.visibility = visibility
+          postsAdapter.reset(list)
+        }
+        Resource.Status.LOADING -> {
+          binding.swipeRefreshLayout.isRefreshing = true
+          binding.emptyViewHeader.visibility = View.GONE
+        }
+        else -> {
+          binding.loadingProgressBar.visibility = View.GONE
+          binding.emptyViewHeader.visibility = View.GONE
+        }
+      }
+    })
+  }
+
+  companion object {
+    fun newInstance(): PostsFragment = PostsFragment()
+  }
+}

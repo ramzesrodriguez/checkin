@@ -31,7 +31,7 @@
       android:layout_margin="@dimen/space_8dp"
       android:background="?attr/selectableItemBackground"
       android:clickable="true"
-      android:onClick="@{(view) -> viewModel::onClickPost}"
+      android:onClick="@{(view) -> viewModel.onClickPost()}"
       app:cardCornerRadius="@dimen/cardview_default_radius">
 
     <LinearLayout
@@ -131,8 +131,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="center"
-            android:visibility="invisible"
-            app:imageDrawableRes="@{viewModel.postLikeDrawableResId}" />
+            android:src="@{viewModel.liked ? @drawable/ic_favorite_red_24dp : @drawable/ic_favorite_border_grey_24dp}"
+            android:visibility="invisible" />
       </com.addhen.checkin.view.widget.SquaredFrameLayout>
 
       <TextView
@@ -191,7 +191,7 @@
               android:layout_marginRight="@dimen/space_8dp"
               android:inAnimation="@anim/slide_in_likes_counter"
               android:outAnimation="@anim/slide_out_likes_counter"
-              app:currentText="@{viewModel.likesCounter}">
+              android:text="@{@plurals/likes_count((int) viewModel.post.likes, (int) viewModel.post.likes)}">
 
             <TextView
                 android:layout_width="wrap_content"

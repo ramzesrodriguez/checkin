@@ -11,5 +11,5 @@ import android.view.ViewGroup
 open class BaseBindingHolder<out T : ViewDataBinding>(context: Context, parent: ViewGroup,
     @LayoutRes layoutResId: Int) : RecyclerView.ViewHolder(
     LayoutInflater.from(context).inflate(layoutResId, parent, false)) {
-  val binding: T = DataBindingUtil.bind(itemView)
+  val binding: T = DataBindingUtil.bind(itemView)!!
 }

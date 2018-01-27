@@ -34,10 +34,14 @@ abstract class BaseRecyclerAdapter<T, V : RecyclerView.ViewHolder> constructor(
     val context: Context, val rxScheduler: RxScheduler) : RecyclerView.Adapter<V>() {
 
   private var dataVersion = 0
+  private var list: MutableList<T> = mutableListOf()
   protected abstract fun areItemsTheSame(oldItem: T, newItem: T): Boolean
   protected abstract fun areContentsTheSame(oldItem: T, newItem: T): Boolean
-  protected var list: MutableList<T> = mutableListOf()
   var compositeDisposable = CompositeDisposable()
+
+  init {
+    initCompositeDisposable()
+  }
 
   @UiThread
   fun reset(items: Collection<T>) {
@@ -79,7 +83,7 @@ abstract class BaseRecyclerAdapter<T, V : RecyclerView.ViewHolder> constructor(
     notifyItemRemoved(position)
   }
 
-  fun initCompositeDisposable() {
+  private fun initCompositeDisposable() {
     if (compositeDisposable.isDisposed) {
       compositeDisposable = CompositeDisposable()
     }

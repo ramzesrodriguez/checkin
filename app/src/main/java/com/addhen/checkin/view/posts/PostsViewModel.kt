@@ -38,6 +38,10 @@ class PostsViewModel @Inject constructor(
     loadPosts()
   }
 
+  fun onSwipeRefresh() {
+    loadPosts()
+  }
+
   private fun loadPosts() {
     postDataRepository.getPosts()
         .doOnSubscribe { posts.value = Resource.loading() }
