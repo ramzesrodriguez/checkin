@@ -22,7 +22,6 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.annotation.MenuRes
 import android.support.v7.app.AppCompatDelegate
@@ -38,25 +37,23 @@ import javax.inject.Inject
  * to load the layout and menu, you provide the super constructor with the layout and menu resIds
  * and it will automatically setup the layout and menu for you.
  */
-abstract class BaseActivity<out T : BaseViewModel, B : ViewDataBinding>(
+abstract class BaseActivity<out T : BaseViewModel, out B : ViewDataBinding>(
     @LayoutRes
     protected val layout: Int,
     @MenuRes
     private val menu: Int = 0,
     clazz: Class<T>) : DaggerAppCompatActivity() {
-  @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-  protected lateinit var binding: B
+  @Inject
+  lateinit var viewModelFactory: ViewModelProvider.Factory
+  protected val binding: B by lazy {
+    DataBindingUtil.setContentView<B>(this, layout)
+  }
   val viewModel by lazy {
     ViewModelProviders.of(this@BaseActivity, viewModelFactory).get(clazz)
   }
 
   init {
     AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-  }
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = DataBindingUtil.setContentView(this, layout)
   }
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -15,19 +15,15 @@
  *
  */
 
-package com.hellofresh.barcodescanner.presentation.di.module
+package com.addhen.checkin.view
 
-import android.arch.lifecycle.ViewModelProvider
-import com.addhen.checkin.di.module.ViewModelFactory
-import dagger.Binds
-import dagger.Module
+import android.support.design.widget.Snackbar
+import android.view.View
 
-
-@Module
-internal abstract class ViewModelBuilder {
-
-  @Binds
-  internal abstract fun viewModelFactory(
-      factory: ViewModelFactory): ViewModelProvider.Factory
+fun View.snackbar(
+    text: String, length: Int = Snackbar.LENGTH_LONG,
+    func: Snackbar.() -> Unit = {}) {
+  val snackbar = Snackbar.make(this, text, length)
+  snackbar.func()
+  snackbar.show()
 }
-

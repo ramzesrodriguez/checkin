@@ -10,10 +10,11 @@ import javax.inject.Singleton
 /**
  * Development related dagger modules.
  */
-@Module
-class DevelopmentAppModule {
+@Module(includes = [AppModule::class])
+internal object DevelopmentAppModule {
 
   @Provides
   @Singleton
+  @JvmStatic
   fun providePostRepository(postRepository: PostDataRepository): PostRepository = postRepository
 }

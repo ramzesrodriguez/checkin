@@ -25,6 +25,7 @@ import com.addhen.checkin.data.model.Post
 import com.addhen.checkin.data.repository.PostDataRepository
 import com.addhen.checkin.view.base.Resource
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
+import timber.log.Timber
 import javax.inject.Inject
 
 class PostsViewModel @Inject constructor(
@@ -33,7 +34,7 @@ class PostsViewModel @Inject constructor(
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()
 
   @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-  override fun onCreate() {
+  fun onResume() {
     super.onCreate()
     loadPosts()
   }
@@ -45,7 +46,7 @@ class PostsViewModel @Inject constructor(
   private fun loadPosts() {
     postDataRepository.getPosts()
         .doOnSubscribe { posts.value = Resource.loading() }
-        .appSubscribeBy(this::onPostLoaded)
+        .appSubscribeBy(this::onPostLoaded, this::onError)
   }
 
   private fun onPostLoaded(posts: List<Post>) {
@@ -53,5 +54,10 @@ class PostsViewModel @Inject constructor(
       PostItemViewModel(post)
     }
     this.posts.value = Resource.success(postItemViewModels)
+  }
+
+  private fun onError(throwable: Throwable) {
+    Timber.e(throwable)
+    this.posts.value = Resource.error(throwable.localizedMessage)
   }
 }

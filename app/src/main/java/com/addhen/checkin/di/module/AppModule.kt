@@ -20,6 +20,7 @@ package com.hellofresh.barcodescanner.presentation.di.module
 import com.addhen.checkin.AppUtilities
 import com.addhen.checkin.CheckinApp
 import com.addhen.checkin.TimberUtility
+import com.addhen.checkin.util.RxScheduler
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
@@ -30,16 +31,26 @@ import javax.inject.Singleton
  * Dagger module generally available for the entire lifecycle of the app.
  */
 
-@Module(includes = [(ViewModelBuilder::class)])
-class AppModule {
+@Module
+internal object AppModule {
 
   @Singleton
   @Provides
+  @JvmStatic
   fun provideAppContext(app: CheckinApp) = app.applicationContext
 
   @Provides
+  @JvmStatic
   fun provideCompositeDisposable() = CompositeDisposable()
 
   @Provides
+  @JvmStatic
   fun provideAppUtilities(timberUtility: TimberUtility): AppUtilities = AppUtilities(timberUtility)
+
+  @Singleton
+  @Provides
+  @JvmStatic
+  fun provideRxScheduler(): RxScheduler {
+    return RxScheduler()
+  }
 }

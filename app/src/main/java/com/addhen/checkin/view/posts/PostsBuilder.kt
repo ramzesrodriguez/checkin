@@ -15,19 +15,22 @@
  *
  */
 
-package com.hellofresh.barcodescanner.presentation.di.module
+package com.addhen.checkin.view.posts
 
-import android.arch.lifecycle.ViewModelProvider
-import com.addhen.checkin.di.module.ViewModelFactory
+import android.arch.lifecycle.ViewModel
+import com.hellofresh.hellofridge.injection.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
-
+import dagger.android.ContributesAndroidInjector
+import dagger.multibindings.IntoMap
 
 @Module
-internal abstract class ViewModelBuilder {
+internal abstract class PostsBuilder {
+  @ContributesAndroidInjector
+  internal abstract fun postsFragment(): PostsFragment
 
   @Binds
-  internal abstract fun viewModelFactory(
-      factory: ViewModelFactory): ViewModelProvider.Factory
+  @IntoMap
+  @ViewModelKey(PostsViewModel::class)
+  abstract fun postsViewModel(viewModel: PostsViewModel): ViewModel
 }
-

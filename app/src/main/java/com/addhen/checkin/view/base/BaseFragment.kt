@@ -31,11 +31,12 @@ abstract class BaseFragment<out T : BaseViewModel, B : ViewDataBinding>(
     @MenuRes
     private val menu: Int = 0,
     clazz: Class<T>) : DaggerFragment() {
+
   @Inject
   lateinit var viewModelFactory: ViewModelProvider.Factory
   protected lateinit var binding: B
-  val viewModel by lazy {
-    ViewModelProviders.of(this, viewModelFactory).get(clazz)
+  val viewModel: T by lazy {
+    ViewModelProviders.of(this@BaseFragment, viewModelFactory).get(clazz)
   }
 
   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

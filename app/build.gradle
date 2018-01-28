@@ -82,6 +82,8 @@ dependencies {
   // Annotation processors
   kapt deps.databinding.compiler
   kapt deps.dagger.compiler
+
+  kapt deps.dagger.processor
   kapt deps.lifecycle.compiler
   kapt deps.glide.compiler
   debugImplementation deps.leakcanary.op

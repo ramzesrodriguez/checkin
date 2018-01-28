@@ -15,19 +15,12 @@
  *
  */
 
-package com.hellofresh.barcodescanner.presentation.di.module
+package com.addhen.checkin.view.main
 
-import android.arch.lifecycle.ViewModelProvider
-import com.addhen.checkin.di.module.ViewModelFactory
-import dagger.Binds
-import dagger.Module
+import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
+import javax.inject.Inject
 
+class MainActivityViewModel @Inject constructor() : BaseViewModel() {
 
-@Module
-internal abstract class ViewModelBuilder {
-
-  @Binds
-  internal abstract fun viewModelFactory(
-      factory: ViewModelFactory): ViewModelProvider.Factory
+  fun shouldSignInOrNot() {}
 }
-
