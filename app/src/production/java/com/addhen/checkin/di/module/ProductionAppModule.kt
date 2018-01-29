@@ -18,26 +18,20 @@
 package com.hellofresh.barcodescanner.presentation.di.module
 
 
-import com.hellofresh.barcodescanner.data.api.BarcodeScannerService
-import com.hellofresh.barcodescanner.data.api.MockBarcodeScannerService
-import com.hellofresh.barcodescanner.data.repository.auth.AuthDataSource
-import com.hellofresh.barcodescanner.data.repository.auth.AuthRepository
-import com.hellofresh.barcodescanner.data.repository.scanlog.CarrierDataSource
-import com.hellofresh.barcodescanner.data.repository.scanlog.CarrierRepository
-import com.hellofresh.barcodescanner.data.repository.scanlog.MockScanLogRepository
-import com.hellofresh.barcodescanner.data.repository.scanlog.ScanLogDataSource
+import com.addhen.checkin.data.repository.PostDataRepository
+import com.addhen.checkin.data.repository.PostRepository
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /**
  * Production related dagger modules.
  */
-@Module
-class ProductionAppModule {
+@Module(includes = [AppModule::class])
+internal object ProductionAppModule {
 
   @Provides
   @Singleton
+  @JvmStatic
   fun providePostRepository(postRepository: PostDataRepository): PostRepository = postRepository
 }

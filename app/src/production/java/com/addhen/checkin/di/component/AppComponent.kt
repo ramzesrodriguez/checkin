@@ -17,14 +17,12 @@
 
 package com.hellofresh.barcodescanner.presentation.di.component
 
-import com.hellofresh.barcodescanner.BarcodeScannerApp
-import com.hellofresh.barcodescanner.presentation.di.module.ActivityBuilder
-import com.hellofresh.barcodescanner.presentation.di.module.AppModule
-import com.hellofresh.barcodescanner.presentation.di.module.DevelopmentAppModule
-import com.hellofresh.barcodescanner.presentation.di.module.JobIntentServiceModule
-import com.hellofresh.barcodescanner.presentation.di.module.JobServiceBuilder
+import com.addhen.checkin.CheckinApp
+import com.addhen.checkin.view.main.MainBuilder
+import com.addhen.checkin.view.posts.PostsBuilder
+import com.hellofresh.barcodescanner.presentation.di.module.ProductionAppModule
+import com.hellofresh.barcodescanner.presentation.di.module.ViewModelBuilder
 import com.hellofresh.barcodescanner.presentation.di.scope.ActivityScope
-import com.hellofresh.barcodescanner.presentation.di.scope.JobIntentServiceScope
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -35,10 +33,14 @@ import javax.inject.Singleton
  */
 @ActivityScope
 @Singleton
-@Component(
-    modules = [(AndroidSupportInjectionModule::class), (AppModule::class), (DevelopmentAppModule::class)])
-interface AppComponent : AndroidInjector<BarcodeScannerApp> {
+@Component(modules = [
+  AndroidSupportInjectionModule::class,
+  ProductionAppModule::class,
+  ViewModelBuilder::class,
+  MainBuilder::class,
+  PostsBuilder::class])
+interface AppComponent : AndroidInjector<CheckinApp> {
 
   @Component.Builder
-  abstract class Builder : AndroidInjector.Builder<BarcodeScannerApp>()
+  abstract class Builder : AndroidInjector.Builder<CheckinApp>()
 }
