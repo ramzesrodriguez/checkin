@@ -1,2 +1,2 @@
-# pretty-pink-pantry
-Pretty Pink Pantry
+# checking
+Yet Another Android App
