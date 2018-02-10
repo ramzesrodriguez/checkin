@@ -27,6 +27,7 @@ import android.view.MenuItem
 import com.addhen.checkin.R
 import com.addhen.checkin.databinding.MainActivityBinding
 import com.addhen.checkin.view.Navigation
+import com.addhen.checkin.view.disableShiftMode
 import com.addhen.checkin.view.posts.PostsFragment
 import com.addhen.checkin.view.snackbar
 import com.firebase.ui.auth.ErrorCodes
@@ -85,6 +86,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
   }
 
   private fun initView() {
+    binding!!.bottomNavigation.disableShiftMode()
     binding!!.bottomNavigation.setOnNavigationItemSelectedListener({ item ->
       binding!!.title.text = item.title
       item.isChecked = true

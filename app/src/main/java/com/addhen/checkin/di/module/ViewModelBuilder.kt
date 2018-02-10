@@ -30,4 +30,3 @@ internal abstract class ViewModelBuilder {
   internal abstract fun viewModelFactory(
       factory: ViewModelFactory): ViewModelProvider.Factory
 }
-

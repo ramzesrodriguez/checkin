@@ -72,6 +72,7 @@ dependencies {
   implementation deps.support.design
   implementation deps.support.recyclerView
   implementation deps.support.constraintLayout
+  implementation deps.ktx
   // Firebase
   implementation deps.firebase.uiAuth
   // Google maps
