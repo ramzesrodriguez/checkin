@@ -17,25 +17,19 @@
 
 package com.addhen.checkin
 
-import android.app.Application
+import android.util.Log
+import com.google.firebase.crash.FirebaseCrash
 import timber.log.Timber
-import javax.inject.Inject
 
-class AppUtilities(vararg params: AppUtility) : AppUtility {
+class FirebaseCrashTree : Timber.Tree() {
 
-  private val appUtilities = params.asList()
-
-  override fun init(application: Application) {
-    for (appUtility in appUtilities) {
-      appUtility.init(application)
+  override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
+    if (priority == Log.VERBOSE || priority == Log.DEBUG) {
+      FirebaseCrash.log((if (priority == Log.DEBUG) "[debug] " else "[verbose] ") + tag + ": "
+          + message)
+      return
     }
-  }
-}
-
-class TimberUtility @Inject constructor() : AppUtility {
-
-  override fun init(application: Application) {
-    val tree = if (BuildConfig.DEBUG) Timber.DebugTree() else FirebaseCrashTree()
-    Timber.plant(tree)
+    message?.let { FirebaseCrash.log(it) }
+    t?.let { FirebaseCrash.report(it) }
   }
 }

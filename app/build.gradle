@@ -75,6 +75,7 @@ dependencies {
   implementation deps.ktx
   // Firebase
   implementation deps.firebase.uiAuth
+  implementation deps.firebase.crash
   // Google maps
   implementation deps.map.google
   implementation deps.map.utils

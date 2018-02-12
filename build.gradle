@@ -55,6 +55,7 @@ buildscript {
       ],
       firebase   : [
           uiAuth: "com.firebaseui:firebase-ui-auth:$versions.firebase",
+          crash : "com.google.firebase:firebase-crash:11.8.0",
       ],
       map        : [
           google: "com.google.android.gms:play-services-maps:11.8.0",
