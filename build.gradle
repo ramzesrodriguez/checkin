@@ -3,7 +3,7 @@
 buildscript {
   ext.application = [id: 'com.addhen.checkin']
   ext.versions = [kotlin                    : '1.2.21',
-                  gradlePlugin              : '3.1.0-beta1',
+                  gradlePlugin              : '3.1.0-beta4',
                   minSdkVersion             : 23,
                   targetSdkVersion          : 27,
                   compileSdkVersion         : 27,
