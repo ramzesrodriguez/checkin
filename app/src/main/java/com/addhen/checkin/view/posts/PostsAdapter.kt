@@ -21,13 +21,12 @@ import android.content.Context
 import android.view.ViewGroup
 import com.addhen.checkin.R
 import com.addhen.checkin.databinding.PostItemBinding
-import com.addhen.checkin.util.RxScheduler
 import com.hellofresh.barcodescanner.presentation.view.base.BaseBindingHolder
 import com.hellofresh.barcodescanner.presentation.view.base.BaseRecyclerAdapter
 
 class PostsAdapter(
-    context: Context,
-    rxScheduler: RxScheduler) : BaseRecyclerAdapter<PostItemViewModel, BaseBindingHolder<PostItemBinding>>(context, rxScheduler) {
+    context: Context
+) : BaseRecyclerAdapter<PostItemViewModel, BaseBindingHolder<PostItemBinding>>(context) {
 
   override fun areItemsTheSame(oldItem: PostItemViewModel, newItem: PostItemViewModel): Boolean {
     return oldItem.post.id == newItem.post.id

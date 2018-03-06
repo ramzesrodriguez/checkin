@@ -50,7 +50,7 @@ class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
   }
 
   private fun initView() {
-    val postsAdapter = PostsAdapter(this.context!!, rxScheduler)
+    val postsAdapter = PostsAdapter(requireContext())
     binding.postsRecyclerView.adapter = postsAdapter
     val linearLayoutManager = object : LinearLayoutManager(context) {
       override fun getExtraLayoutSpace(state: RecyclerView.State) = 300
