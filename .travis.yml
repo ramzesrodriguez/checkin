@@ -10,6 +10,9 @@ android:
     - build-tools-26.0.2
     - android-27
     - android-26
+env:
+  global:
+    - secure: "b27erfqez9hITsNt2CwLZ0nqL6uKqVk8csXx/RRp9+5kNpWxyuolgUkROyu97OkEzqB5I8BHiIfjuyWcFY8sNh/MlRHreJVATAkUQqq2yYQ+o3aDYVJamIulAfiTbb2oPoYomGRXPITo7V+Vfch43UELxp+WrOCFKyzFY+34fs0scvhOz21kJKv3ks5hIV4I3vpTGAMc5pf68kJW9W3yaGyeRLlHjgj/hZW6i/srvANLip/GHiX7UqmA2XuOyvFHyuGCj3g2lDYZSzvYiEter+dQ+RfETd0aFCiJXSoFZQ2THeGTjOWKgAXvTIwejR16J2lL9q61aVKvL8XNt+eX/dcGmcdcW4JnG97u/SI5OJgd+2j9SWXMneeb+647OA4kzYesEMig7R0255KGueFLBQ3NWaLICBTZHTDJzpvysMylY7CDKzUrRWJxA0VCYJbBThAYohJcrTOFscuKwaKMjLd27BoRFT/OwWkbJXXulPic5jVfv9K42XG3H5gDzBN+5ByLqG0VH+sKPMVZlsNvjUvTq5zK4uhnnYOJoKOuMelZ/hJjgLuTfNEgzlJzqmJRA7Dn5QgRfIPPzsGz9F17U4RW5zk2Kar/Mof3si+19zSJqcqE62RVSAYCOv52dqcV1+s/RSps/tNIZ3hVAlxygntEh1bFZpKOjcTNptbiuH0="
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 before_install:
@@ -20,7 +23,12 @@ cache:
     - $HOME/.gradle/wrapper/
 before_script:
   - export VERSION_TO_BUILD="$TRAVIS_TAG"
-script: ./gradlew clean build
+install:
+  - bundle install
+script:
+  - ./gradlew assembleDebug ktlintCheck
+  - bundle exec danger
+  - ./gradlew clean build
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
