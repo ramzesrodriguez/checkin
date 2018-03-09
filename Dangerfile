@@ -3,7 +3,7 @@ github.dismiss_out_of_range_messages
 
 # ktlint
 checkstyle_format.base_path = Dir.pwd
-checkstyle_format.report 'app/build/reports/ktlint/developmentDebug.xml'
+checkstyle_format.report 'app/build/reports/ktlint/ktlint-developmentDebug.xml'
 # AndroidLint
 android_lint.report_file = "app/build/reports/lint-results.xml"
 android_lint.skip_gradle_task = true

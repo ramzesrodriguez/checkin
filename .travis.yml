@@ -27,9 +27,8 @@ install:
 script:
 - gpg --batch --passphrase u3zZs4F7XHC5y --output app/google-services.json --decrypt
   app/google-services.json.enc
-- "./gradlew assembleDebug ktlintCheck"
+- "./gradlew clean assembleDebug ktlintCheck"
 - bundle exec danger
-- "./gradlew clean build"
 deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"
