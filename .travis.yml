@@ -27,7 +27,8 @@ install:
 script:
 - gpg --batch --passphrase u3zZs4F7XHC5y --output app/google-services.json --decrypt
   app/google-services.json.enc
-- "./gradlew clean assembleDebug ktlintCheck"
+- "./gradlew --stacktrace lintDevelopmentDebug"
+- "./gradlew --stacktrace ktlintDevelopmentDebugCheck"
 - bundle exec danger
 deploy:
   provider: releases
