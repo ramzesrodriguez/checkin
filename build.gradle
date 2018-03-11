@@ -14,21 +14,23 @@ buildscript {
                   targetCompatibilityVersion: JavaVersion.VERSION_1_8,
                   dagger                    : '2.14.1',
                   archComponents            : '1.1.0',
-                  timber                    : '4.6.0',
+                  timber                    : '4.6.1',
                   junit                     : '4.12',
-                  firebase                  : '3.2.1',
+                  firebase                  : '3.2.2',
                   ktlint                    : '0.15.0',
                   ktlintGradle              : '3.0.0',
                   glide                     : '4.5.0']
   ext.deps = [
       kotlin     : [
           stdLib: [
-              jre: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+              jre: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
           ],
       ],
       support    : [
           design            : "com.android.support:design:$versions.supportLibrary",
           recyclerView      : "com.android.support:recyclerview-v7:$versions.supportLibrary",
+          customtabs        : "com.android.support:customtabs:$versions.supportLibrary",
+          cardview          : "com.android.support:cardview-v7:$versions.supportLibrary",
           'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
       ],
       lifecycle  : [
@@ -68,7 +70,7 @@ buildscript {
           'compiler' : "com.google.dagger:dagger-compiler:${versions.dagger}",
           'processor': "com.google.dagger:dagger-android-processor:$versions.dagger"
       ],
-      ktx        : "androidx.core:core-ktx:0.1",
+      ktx        : "androidx.core:core-ktx:0.2",
       'timber'   : "com.jakewharton.timber:timber:$versions.timber",
       'junit'    : "junit:junit:$versions.junit"
   ]

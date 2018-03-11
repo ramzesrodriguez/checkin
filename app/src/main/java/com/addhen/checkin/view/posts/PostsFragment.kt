@@ -31,7 +31,6 @@ import com.addhen.checkin.view.base.Resource
 import com.addhen.checkin.view.snackbar
 import javax.inject.Inject
 
-
 class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
     clazz = PostsViewModel::class.java) {
 

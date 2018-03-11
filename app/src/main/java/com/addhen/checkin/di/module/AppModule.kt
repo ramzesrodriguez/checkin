@@ -26,7 +26,6 @@ import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
-
 /**
  * Dagger module generally available for the entire lifecycle of the app.
  */

@@ -23,7 +23,6 @@ import javax.inject.Inject
 
 class PostItemViewModel @Inject constructor(val post: Post) : BaseViewModel() {
 
-
   fun onClickPost() {
     // TODO navigate to post details page
   }
@@ -31,7 +30,6 @@ class PostItemViewModel @Inject constructor(val post: Post) : BaseViewModel() {
   fun isLiked(): Boolean {
     return if (post.like != null)
       post.like.postId === post.id && post.user.id === post.like.userId
-    else
-      false
+    else false
   }
 }

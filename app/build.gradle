@@ -65,12 +65,13 @@ ktlint {
 }
 
 dependencies {
-  api project(':base')
   api project(':data')
   implementation deps.kotlin.stdLib.jre
   // Support library
   implementation deps.support.design
   implementation deps.support.recyclerView
+  implementation deps.support.customtabs
+  implementation deps.support.cardview
   implementation deps.support.constraintLayout
   implementation deps.ktx
   // Firebase
