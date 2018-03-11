@@ -101,7 +101,9 @@ private fun setImageUrlWithSize(imageView: ImageView, imageUrl: String?,
         ContextCompat.getDrawable(imageView.context, placeholderResId))
   } else {
     val size = Math.round(sizeInDimen)
-    imageView.background = ContextCompat.getDrawable(imageView.context, R.drawable.circle_border_grey200)
+    imageView.background = ContextCompat.getDrawable(
+        imageView.context, R.drawable.circle_border_grey200
+    )
     GlideApp.with(imageView.context)
         .load(imageUrl)
         .diskCacheStrategy(DiskCacheStrategy.ALL)

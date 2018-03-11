@@ -68,7 +68,7 @@ buildscript {
           'compiler' : "com.google.dagger:dagger-compiler:${versions.dagger}",
           'processor': "com.google.dagger:dagger-android-processor:$versions.dagger"
       ],
-      ktx        : "androidx.core:core-ktx:0.1",
+      ktx        : "androidx.core:core-ktx:0.2",
       'timber'   : "com.jakewharton.timber:timber:$versions.timber",
       'junit'    : "junit:junit:$versions.junit"
   ]
