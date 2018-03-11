@@ -16,7 +16,7 @@ buildscript {
                   archComponents            : '1.1.0',
                   timber                    : '4.6.0',
                   junit                     : '4.12',
-                  firebase                  : '3.2.1',
+                  firebase                  : '3.2.2',
                   ktlint                    : '0.15.0',
                   ktlintGradle              : '3.0.0',
                   glide                     : '4.5.0']

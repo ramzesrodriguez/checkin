@@ -69,7 +69,11 @@ dependencies {
   implementation deps.kotlin.stdLib.jre
   // Support library
   implementation deps.support.design
-  implementation deps.support.recyclerView
+  implementation(deps.support.recyclerView) {
+    exclude module: 'design'
+    exclude module: 'customtabs'
+    exclude module: 'support-annotations'
+  }
   implementation deps.support.constraintLayout
   implementation deps.ktx
   // Firebase
