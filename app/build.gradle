@@ -79,7 +79,7 @@ dependencies {
   implementation deps.firebase.crash
   // Google maps
   implementation deps.map.google
-  //implementation deps.map.utils
+  implementation deps.map.utils
   implementation deps.glide.core
   implementation deps.glide.okhttp3
   // Annotation processors

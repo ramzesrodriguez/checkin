@@ -14,7 +14,7 @@ buildscript {
                   targetCompatibilityVersion: JavaVersion.VERSION_1_8,
                   dagger                    : '2.14.1',
                   archComponents            : '1.1.0',
-                  timber                    : '4.6.0',
+                  timber                    : '4.6.1',
                   junit                     : '4.12',
                   firebase                  : '3.2.2',
                   ktlint                    : '0.15.0',
