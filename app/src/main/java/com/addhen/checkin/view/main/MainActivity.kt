@@ -33,7 +33,6 @@ import com.addhen.checkin.view.snackbar
 import com.firebase.ui.auth.ErrorCodes
 import com.hellofresh.barcodescanner.presentation.view.base.BaseActivity
 
-
 class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
     R.layout.main_activity,
     R.menu.menu_main,
@@ -52,7 +51,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
-      R.id.menu_user_profile -> {/*TODO navigate to user profile*/
+      R.id.menu_user_profile -> { /*TODO navigate to user profile*/
       }
       else -> {
       }

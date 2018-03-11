@@ -23,7 +23,6 @@ import android.support.v7.recyclerview.extensions.AsyncListDiffer
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 
-
 abstract class BaseRecyclerAdapter<T, V : RecyclerView.ViewHolder> constructor(
     val context: Context) : RecyclerView.Adapter<V>() {
 
@@ -53,5 +52,4 @@ abstract class BaseRecyclerAdapter<T, V : RecyclerView.ViewHolder> constructor(
   fun getItem(position: Int): T {
     return asyncListDiffer.currentList.elementAt(position)
   }
-
 }

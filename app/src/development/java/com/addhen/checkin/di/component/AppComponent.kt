@@ -28,7 +28,6 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
-
 /**
  * Initializes development flavor related dagger components.
  */

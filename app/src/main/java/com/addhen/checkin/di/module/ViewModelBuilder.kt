@@ -22,7 +22,6 @@ import com.addhen.checkin.di.module.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 
-
 @Module
 internal abstract class ViewModelBuilder {
 

@@ -28,7 +28,6 @@ import com.firebase.ui.auth.AuthUI
 import java.util.Arrays
 import javax.inject.Inject
 
-
 class Navigation @Inject constructor(activity: AppCompatActivity) {
   private val activity: Activity
 

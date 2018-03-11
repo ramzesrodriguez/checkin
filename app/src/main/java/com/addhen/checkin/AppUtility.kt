@@ -19,7 +19,6 @@ package com.addhen.checkin
 
 import android.app.Application
 
-
 interface AppUtility {
   fun init(application: Application)
 }

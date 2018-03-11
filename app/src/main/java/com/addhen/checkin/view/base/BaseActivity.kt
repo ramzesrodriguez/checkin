@@ -17,7 +17,6 @@
 
 package com.hellofresh.barcodescanner.presentation.view.base
 
-
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
@@ -29,7 +28,6 @@ import android.view.Menu
 import android.view.MenuItem
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
-
 
 /**
  * Base {@link AppCompatActivity} class that all classes that wants to extend {@link
@@ -73,4 +71,3 @@ abstract class BaseActivity<out T : BaseViewModel, out B : ViewDataBinding>(
     return super.onOptionsItemSelected(item)
   }
 }
-
