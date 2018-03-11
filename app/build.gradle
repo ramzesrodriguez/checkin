@@ -69,11 +69,9 @@ dependencies {
   implementation deps.kotlin.stdLib.jre
   // Support library
   implementation deps.support.design
-  implementation(deps.support.recyclerView) {
-    exclude module: 'design'
-    exclude module: 'customtabs'
-    exclude module: 'support-annotations'
-  }
+  implementation deps.support.recyclerView
+  implementation deps.support.customtabs
+  implementation deps.support.cardview
   implementation deps.support.constraintLayout
   implementation deps.ktx
   // Firebase
@@ -81,7 +79,7 @@ dependencies {
   implementation deps.firebase.crash
   // Google maps
   implementation deps.map.google
-  implementation deps.map.utils
+  //implementation deps.map.utils
   implementation deps.glide.core
   implementation deps.glide.okhttp3
   // Annotation processors

@@ -29,6 +29,8 @@ buildscript {
       support    : [
           design            : "com.android.support:design:$versions.supportLibrary",
           recyclerView      : "com.android.support:recyclerview-v7:$versions.supportLibrary",
+          customtabs        : "com.android.support:customtabs:$versions.supportLibrary",
+          cardview          : "com.android.support:cardview-v7:$versions.supportLibrary",
           'constraintLayout': "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
       ],
       lifecycle  : [
