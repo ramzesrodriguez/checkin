@@ -65,7 +65,6 @@ ktlint {
 }
 
 dependencies {
-  api project(':base')
   api project(':data')
   implementation deps.kotlin.stdLib.jre
   // Support library

@@ -23,7 +23,7 @@ buildscript {
   ext.deps = [
       kotlin     : [
           stdLib: [
-              jre: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+              jre: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
           ],
       ],
       support    : [
