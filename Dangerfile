@@ -1,5 +1,5 @@
 # Ignore inline messages which lay outside a diff's range of PR
-github.dismiss_out_of_range_messages
+#github.dismiss_out_of_range_messages
 
 # ktlint
 checkstyle_format.base_path = Dir.pwd
