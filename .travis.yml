@@ -13,23 +13,27 @@ env:
   - secure: b27erfqez9hITsNt2CwLZ0nqL6uKqVk8csXx/RRp9+5kNpWxyuolgUkROyu97OkEzqB5I8BHiIfjuyWcFY8sNh/MlRHreJVATAkUQqq2yYQ+o3aDYVJamIulAfiTbb2oPoYomGRXPITo7V+Vfch43UELxp+WrOCFKyzFY+34fs0scvhOz21kJKv3ks5hIV4I3vpTGAMc5pf68kJW9W3yaGyeRLlHjgj/hZW6i/srvANLip/GHiX7UqmA2XuOyvFHyuGCj3g2lDYZSzvYiEter+dQ+RfETd0aFCiJXSoFZQ2THeGTjOWKgAXvTIwejR16J2lL9q61aVKvL8XNt+eX/dcGmcdcW4JnG97u/SI5OJgd+2j9SWXMneeb+647OA4kzYesEMig7R0255KGueFLBQ3NWaLICBTZHTDJzpvysMylY7CDKzUrRWJxA0VCYJbBThAYohJcrTOFscuKwaKMjLd27BoRFT/OwWkbJXXulPic5jVfv9K42XG3H5gDzBN+5ByLqG0VH+sKPMVZlsNvjUvTq5zK4uhnnYOJoKOuMelZ/hJjgLuTfNEgzlJzqmJRA7Dn5QgRfIPPzsGz9F17U4RW5zk2Kar/Mof3si+19zSJqcqE62RVSAYCOv52dqcV1+s/RSps/tNIZ3hVAlxygntEh1bFZpKOjcTNptbiuH0=
   - secure: Rc4CsNIdrVxi3yC4HjnnVeB2FZ3RUvrGulrKFMLBsV/jh45jlKSHZBSygNaY7Q2h7clun+T8x5L2XHXEOSMlm8dY1ntXxxcV+km7RkcK2jp2kiTbUKDa4Pqfe1TzfsrYzKf58v+z7TrOEZl5JSCORtycpj477iNtcbxA9BZBMfQc/IpaF6soOeJtFNiYryxu93h3phwa+EIvan+HC+bg7npJzBNW6D5wQpCkMF7Ub36JqykfknSpBKa2eN4AiWjTwiC4e7vO4PU7L8TnUIQZ+oeagWcy1Q7elY/lgibtvfMu1/q1UKwEQmer4j7fZazQIMu3pl4BFe50tcIXysIpj6Dd98lE6uHbJ36PBp1/vFZjXpuG9WARUfwRIVgQ9C1VzsmmCNC7wMESjooFNsqrlmenfz8ZhO1NsIlvjyIsy+TqT7NxCyBdKlp4ELlOt7cWQv4qowftSGFUJZ4bIA84H+VFUzDZfyqAt8ONChsEflJXTIK4eYP5pUZoWOeFcwMaJHoSPZigyl+KkpUiCnc4anBYVCBiwfWOArcJPX5knaYet6s/qcXt1SXgLKwKxpYLZOCBv6gPxyDU7DIA3zxakA1tnR5ICnP2yMt/cCt/0PpWE49Q6X4/kTC9LuI8JZCFIYIGP7dwqXKAolJ0UHNJZ3B7wBRsmBT2lX0oXsdLRGQ=
 before_cache:
-- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 before_install:
-- yes | sdkmanager "platforms;android-27"
+  - yes | sdkmanager "platforms;android-27" "platform-tools" "tools"
 cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
 before_script:
-- export VERSION_TO_BUILD="$TRAVIS_TAG"
+  - export VERSION_TO_BUILD="$TRAVIS_TAG"
+  - export PATH="$ANDROID_HOMEtools/bin:$PATH"
 install:
-- bundle install
+  - bundle install
 script:
-- gpg --batch --passphrase $GOOGLE_PLAY_SERVICE_JSON_KEY --output app/google-services.json --decrypt
-  app/google-services.json.enc
-- "./gradlew --stacktrace lintDevelopmentDebug --no-daemon"
-- "./gradlew --stacktrace ktlintDevelopmentDebugCheck --no-daemon"
-- bundle exec danger
+  - gpg --batch --passphrase $GOOGLE_PLAY_SERVICE_JSON_KEY --output app/google-services.json --decrypt app/google-services.json.enc
+  - "./gradlew detektCheck --no-daemon"
+  - "./gradlew --stacktrace lintDevelopmentDebug --no-daemon"
+  - "./gradlew --stacktrace ktlintDevelopmentDebugCheck --no-daemon"
+  - "./gradlew --stacktrace assembleProduction --no-daemon"
+  - bundle exec danger
 deploy:
   provider: releases
   api_key: "$GITHUB_OAUTH_TOKEN"

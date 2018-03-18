@@ -9,3 +9,8 @@ android_lint.report_file = "app/build/reports/lint-results-developmentDebug.xml"
 android_lint.skip_gradle_task = true
 android_lint.severity = "Error"
 android_lint.lint(inline_mode: true)
+# Apk Analyzer
+apkanalyzer.apk_file = "app/build/outputs/apk/production/release/app-*-production-release-unsigned.apk"
+apkanalyzer.file_size
+apkanalyzer.permissions
+apkanalyzer.method_references

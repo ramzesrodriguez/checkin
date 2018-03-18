@@ -19,7 +19,8 @@ buildscript {
                   firebase                  : '3.2.2',
                   ktlint                    : '0.15.0',
                   ktlintGradle              : '3.0.0',
-                  glide                     : '4.5.0']
+                  glide                     : '4.5.0',
+                  detekt                    : 'RC6-3']
   ext.deps = [
       kotlin     : [
           stdLib: [
@@ -72,7 +73,7 @@ buildscript {
       ],
       ktx        : "androidx.core:core-ktx:0.2",
       'timber'   : "com.jakewharton.timber:timber:$versions.timber",
-      'junit'    : "junit:junit:$versions.junit"
+      'junit'    : "junit:junit:$versions.junit",
   ]
   repositories {
     google()
@@ -82,13 +83,15 @@ buildscript {
   dependencies {
     classpath "com.android.tools.build:gradle:$versions.gradlePlugin"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-    classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
     classpath 'com.google.gms:google-services:3.1.1'
     classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlintGradle"
+    classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.$versions.detekt"
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
   }
 }
+
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 allprojects {
   repositories {
@@ -112,3 +115,13 @@ task upgradeWrapper(type: Wrapper) {
   description 'Creates the gradle wrapper.'
   gradleVersion '4.5'
 }
+
+detekt {
+  version = "1.0.0.$versions.detekt"
+  profile("main") {
+    input = "$projectDir/app/src/main/java"
+    config = "$projectDir/detekt.yml"
+    filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+  }
+}
+

@@ -35,7 +35,10 @@ object DateTimeUtils {
     if (time > now || time <= 0) {
       return null
     }
-    // TODO: localize final long diff = now - time; and labels
+    return timeDifference(now, time)
+  }
+
+  private fun timeDifference(now: Long, time: Long): String? {
     val diff = now - time
     return if (diff < MINUTE_MILLIS) {
       "just now"
