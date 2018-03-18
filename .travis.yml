@@ -24,6 +24,7 @@ cache:
   - "$HOME/.android/build-cache"
 before_script:
   - export VERSION_TO_BUILD="$TRAVIS_TAG"
+  - export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin:$PATH"
 install:
   - bundle install
 script:
