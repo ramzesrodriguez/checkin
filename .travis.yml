@@ -27,6 +27,7 @@ install:
 script:
 - gpg --batch --passphrase $GOOGLE_PLAY_SERVICE_JSON_KEY --output app/google-services.json --decrypt
   app/google-services.json.enc
+- "./gradlew detektCheck"
 - "./gradlew --stacktrace lintDevelopmentDebug --no-daemon"
 - "./gradlew --stacktrace ktlintDevelopmentDebugCheck --no-daemon"
 - bundle exec danger
