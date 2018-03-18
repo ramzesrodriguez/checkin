@@ -11,7 +11,6 @@ android_lint.severity = "Error"
 android_lint.lint(inline_mode: true)
 # Apk Analyzer
 apkanalyzer.apk_file = "app/build/outputs/apk/production/release/app-*-production-release-unsigned.apk"
-apkanalyzer.command_apkanalyzer="usr/local/android-sdk/tools/bin/apkanalyzer"
 apkanalyzer.file_size
 apkanalyzer.permissions
 apkanalyzer.method_references

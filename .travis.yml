@@ -28,7 +28,6 @@ before_script:
 install:
   - bundle install
 script:
-  - ls ${ANDROID_HOME}tools/bin/
   - gpg --batch --passphrase $GOOGLE_PLAY_SERVICE_JSON_KEY --output app/google-services.json --decrypt app/google-services.json.enc
   - "./gradlew detektCheck --no-daemon"
   - "./gradlew --stacktrace lintDevelopmentDebug --no-daemon"
