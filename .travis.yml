@@ -28,6 +28,7 @@ before_script:
 install:
   - bundle install
 script:
+  - echo "PATH: $PATH"
   - gpg --batch --passphrase $GOOGLE_PLAY_SERVICE_JSON_KEY --output app/google-services.json --decrypt
   app/google-services.json.enc
   - "./gradlew detektCheck --no-daemon"
