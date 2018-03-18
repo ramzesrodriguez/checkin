@@ -83,7 +83,6 @@ buildscript {
   dependencies {
     classpath "com.android.tools.build:gradle:$versions.gradlePlugin"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-    classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
     classpath 'com.google.gms:google-services:3.1.1'
     classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:$versions.ktlintGradle"
     classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.$versions.detekt"
