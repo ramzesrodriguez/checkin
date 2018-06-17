@@ -17,16 +17,16 @@
 
 package com.addhen.checkin.view.databinding
 
-import android.databinding.BindingAdapter
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextSwitcher
 import android.widget.TextView
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.databinding.BindingAdapter
 import com.addhen.checkin.R
 import com.addhen.checkin.data.model.User
 import com.addhen.checkin.util.DateTimeUtils

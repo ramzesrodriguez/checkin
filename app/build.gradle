@@ -14,7 +14,7 @@ android {
     archivesBaseName = "${project.name}-${versionName}"
     versionCode 1
     versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables.useSupportLibrary = true
   }
   dexOptions {
@@ -29,6 +29,7 @@ android {
   }
   lintOptions {
     lintConfig file('lint.xml')
+    disable 'AppCompatResource'
     textReport true
     textOutput 'stdout'
   }
@@ -65,7 +66,6 @@ ktlint {
 
 dependencies {
   api project(':data')
-  implementation deps.kotlin.stdLib.jre
   // Support library
   implementation deps.support.design
   implementation deps.support.recyclerView

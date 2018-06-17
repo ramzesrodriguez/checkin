@@ -1,15 +1,19 @@
 package com.hellofresh.barcodescanner.presentation.view.base
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.annotation.LayoutRes
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 
-open class BaseBindingHolder<out T : ViewDataBinding>(context: Context, parent: ViewGroup,
-    @LayoutRes layoutResId: Int) : RecyclerView.ViewHolder(
-    LayoutInflater.from(context).inflate(layoutResId, parent, false)) {
-  val binding: T = DataBindingUtil.bind(itemView)!!
+open class BaseBindingHolder<out T : ViewDataBinding>(
+    context: Context,
+    parent: ViewGroup,
+    @LayoutRes layoutResId: Int
+) : RecyclerView.ViewHolder(
+    LayoutInflater.from(context).inflate(layoutResId, parent, false)
+) {
+  val binding: T = DataBindingUtil.bind(itemView) ?: error("Should not be an error")
 }

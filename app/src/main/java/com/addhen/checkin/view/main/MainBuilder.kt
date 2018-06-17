@@ -17,7 +17,7 @@
 
 package com.addhen.checkin.view.main
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.hellofresh.hellofridge.injection.di.ViewModelKey
 import dagger.Binds
 import dagger.Module

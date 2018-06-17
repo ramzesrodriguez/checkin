@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-  api deps.kotlin.stdLib.jre
+  api deps.kotlin.stdLib.jdk
   // Architecture components lifecycle
   api deps.lifecycle.runtime
   api deps.lifecycle.extentions

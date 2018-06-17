@@ -17,7 +17,7 @@
 
 package com.hellofresh.barcodescanner.presentation.view.base
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.addhen.checkin.ext.RxJavaExt
 import io.reactivex.disposables.CompositeDisposable
 

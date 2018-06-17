@@ -17,8 +17,8 @@
 
 package com.addhen.checkin.view
 
-import android.support.design.widget.Snackbar
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 
 fun View.snackbar(
     text: String, length: Int = Snackbar.LENGTH_LONG,
