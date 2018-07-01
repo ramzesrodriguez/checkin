@@ -20,10 +20,10 @@ package com.addhen.checkin.view.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.NonNull
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.view.MenuItem
+import androidx.annotation.NonNull
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.addhen.checkin.R
 import com.addhen.checkin.databinding.MainActivityBinding
 import com.addhen.checkin.view.Navigation
@@ -44,7 +44,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     viewModel.shouldSignInOrNot()
-    setSupportActionBar(binding!!.toolbar)
+    setSupportActionBar(binding.toolbar)
     initView()
     initFragments(savedInstanceState)
   }
@@ -60,15 +60,15 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
   }
 
   override fun onBackPressed() {
-    if (switchFragment(postsFragment!!, PostsFragment.TAG)) {
-      binding!!.bottomNavigation.menu.findItem(R.id.menu_list).isChecked = true
-      binding!!.toolbar.title = getString(R.string.bottom_nav_menu_list)
+    if (switchFragment(postsFragment, PostsFragment.TAG)) {
+      binding.bottomNavigation.menu.findItem(R.id.menu_list).isChecked = true
+      binding.toolbar.title = getString(R.string.bottom_nav_menu_list)
       return
     }
     super.onBackPressed()
   }
 
-  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     super.onActivityResult(requestCode, resultCode, data)
     if (requestCode == Navigation.RC_SIGN_IN) {
       if (resultCode == RESULT_CANCELED) {
@@ -85,33 +85,23 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
   }
 
   private fun initView() {
-    binding!!.bottomNavigation.disableShiftMode()
-    binding!!.bottomNavigation.setOnNavigationItemSelectedListener({ item ->
-      binding!!.title.text = item.title
+    binding.bottomNavigation.disableShiftMode()
+    binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+      binding.title.text = item.title
       item.isChecked = true
       when (item.itemId) {
         R.id.menu_list -> switchFragment(postsFragment, PostsFragment.TAG)
         R.id.menu_map -> switchFragment(postsFragment, PostsFragment.TAG)
-        else -> switchFragment(postsFragment!!, PostsFragment.TAG)
+        else -> switchFragment(postsFragment, PostsFragment.TAG)
       }
       false
-    })
+    }
   }
 
   private fun initFragments(savedInstanceState: Bundle?) {
     val manager = supportFragmentManager
-    /*postsFragment = manager.findFragmentByTag(PostsFragment.TAG)
-    postsMapFragment = manager.findFragmentByTag(PostsFragment.TAG)
-    if (postsFragment == null) {
-      postsFragment = PostsFragment.newInstance()
-    }
-    if (postsMapFragment == null) {
-      postsMapFragment = PostsFragment.newInstance()
-    }*/
     postsFragment = PostsFragment.newInstance()
-    if (savedInstanceState == null) {
-      switchFragment(postsFragment, PostsFragment.TAG)
-    }
+    savedInstanceState?.run { switchFragment(postsFragment, PostsFragment.TAG) }
   }
 
   private fun switchFragment(@NonNull fragment: Fragment, @NonNull tag: String): Boolean {
@@ -121,9 +111,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
     val manager = supportFragmentManager
     val ft = manager.beginTransaction()
     val currentFragment = manager.findFragmentById(R.id.fragment_main_content)
-    if (currentFragment != null) {
-      ft.detach(currentFragment)
-    }
+    currentFragment?.let { ft.detach(it) }
     if (fragment.isDetached) {
       ft.attach(fragment)
     } else {

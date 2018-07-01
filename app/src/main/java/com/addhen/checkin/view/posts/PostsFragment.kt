@@ -17,13 +17,13 @@
 
 package com.addhen.checkin.view.posts
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.addhen.checkin.databinding.PostsFragmentBinding
 import com.addhen.checkin.util.RxScheduler
 import com.addhen.checkin.view.base.BaseFragment

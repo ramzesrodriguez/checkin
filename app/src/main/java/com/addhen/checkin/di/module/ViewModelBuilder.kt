@@ -17,7 +17,7 @@
 
 package com.hellofresh.barcodescanner.presentation.di.module
 
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider
 import com.addhen.checkin.di.module.ViewModelFactory
 import dagger.Binds
 import dagger.Module

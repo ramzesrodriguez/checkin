@@ -17,10 +17,10 @@
 
 package com.addhen.checkin.view.base
 
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.ViewDataBinding
-import android.support.annotation.MenuRes
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.ViewDataBinding
+import androidx.annotation.MenuRes
 import android.view.Menu
 import android.view.MenuInflater
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
