@@ -43,6 +43,11 @@ android {
     textOutput("stdout")
   }
 
+  compileOptions {
+    setSourceCompatibility(Versions.SOURCE_COMPATIBILITY)
+    setTargetCompatibility(Versions.SOURCE_COMPATIBILITY)
+  }
+
   flavorDimensions(env)
 
   productFlavors {
@@ -53,7 +58,7 @@ android {
       // Specify devel base URL. Always end it with the trailing slash because the HTTP client
       // expects it.
       val baseUrl = "http://scan-mock.com/"
-      buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
+      buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
     }
 
     create("production") {
