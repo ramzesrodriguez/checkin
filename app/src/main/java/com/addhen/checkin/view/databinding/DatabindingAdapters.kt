@@ -36,8 +36,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import java.util.Date
 
 @BindingAdapter(value = ["buttonDrawableRes"])
-fun setButtonDrawableRes(button: ImageButton,
-                         @DrawableRes drawableResId: Int) {
+fun setButtonDrawableRes(button: ImageButton, @DrawableRes drawableResId: Int) {
   button.setImageDrawable(ContextCompat.getDrawable(button.context, drawableResId))
 }
 
@@ -47,23 +46,21 @@ fun setPhotoImageUrl(imageView: ImageView, imageUrl: String?) {
 }
 
 @BindingAdapter(value = ["photoImageUrl", "photoImageSize"])
-fun setPhotoImageUrlWithSize(imageView: ImageView, imageUrl: String?,
-                             sizeInDimen: Float) {
+fun setPhotoImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDimen: Float) {
   if (TextUtils.isEmpty(imageUrl)) {
-    imageView.setImageDrawable(
-        ContextCompat.getDrawable(imageView.context, R.color.grey200))
-  } else {
-    val size = Math.round(sizeInDimen)
-    GlideApp.with(imageView.context)
-        .load(imageUrl)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .override(size, size)
-        .centerCrop()
-        .placeholder(R.color.grey200)
-        .error(R.color.grey200)
-        .transform(CircleCrop())
-        .into(imageView)
+    imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, R.color.grey200))
+    return
   }
+  val size = Math.round(sizeInDimen)
+  GlideApp.with(imageView.context)
+      .load(imageUrl)
+      .diskCacheStrategy(DiskCacheStrategy.ALL)
+      .override(size, size)
+      .centerCrop()
+      .placeholder(R.color.grey200)
+      .error(R.color.grey200)
+      .transform(CircleCrop())
+      .into(imageView)
 }
 
 @BindingAdapter(value = ["currentText"])
@@ -72,8 +69,7 @@ fun setCurrentText(view: TextSwitcher, text: String) {
 }
 
 @BindingAdapter(value = ["userImageUrl", "userImageSize"])
-fun setUserImageUrlWithSize(imageView: ImageView, imageUrl: String?,
-                            sizeInDimen: Float) {
+fun setUserImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDimen: Float) {
   setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_user_placeholder)
 }
 
@@ -96,37 +92,35 @@ fun setCoverFadeBackground(view: View, @ColorRes colorResId: Int) {
 
 private fun setImageUrlWithSize(imageView: ImageView, imageUrl: String?,
                                 sizeInDimen: Float, placeholderResId: Int) {
-  if (TextUtils.isEmpty(imageUrl)) {
-    imageView.setImageDrawable(
-        ContextCompat.getDrawable(imageView.context, placeholderResId))
-  } else {
-    val size = Math.round(sizeInDimen)
-    imageView.background = ContextCompat.getDrawable(
-        imageView.context, R.drawable.circle_border_grey200
-    )
-    GlideApp.with(imageView.context)
-        .load(imageUrl)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .override(size, size)
-        .centerCrop()
-        .placeholder(placeholderResId)
-        .error(placeholderResId)
-        .transform(CircleCrop())
-        .into(imageView)
+  if (imageUrl.isNullOrEmpty()) {
+    imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
+    return
   }
+  val size = Math.round(sizeInDimen)
+  imageView.background = ContextCompat.getDrawable(
+      imageView.context, R.drawable.circle_border_grey200
+  )
+  GlideApp.with(imageView.context)
+      .load(imageUrl)
+      .diskCacheStrategy(DiskCacheStrategy.ALL)
+      .override(size, size)
+      .centerCrop()
+      .placeholder(placeholderResId)
+      .error(placeholderResId)
+      .transform(CircleCrop())
+      .into(imageView)
 }
 
 private fun setImageUrl(imageView: ImageView, imageUrl: String?,
                         @DrawableRes placeholderResId: Int) {
-  if (TextUtils.isEmpty(imageUrl)) {
-    imageView.setImageDrawable(
-        ContextCompat.getDrawable(imageView.context, placeholderResId))
-  } else {
-    GlideApp.with(imageView.context)
-        .load(imageUrl)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
-        .placeholder(placeholderResId)
-        .error(placeholderResId)
-        .into(imageView)
+  if (imageUrl.isNullOrEmpty()) {
+    imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
+    return
   }
+  GlideApp.with(imageView.context)
+      .load(imageUrl)
+      .diskCacheStrategy(DiskCacheStrategy.ALL)
+      .placeholder(placeholderResId)
+      .error(placeholderResId)
+      .into(imageView)
 }
