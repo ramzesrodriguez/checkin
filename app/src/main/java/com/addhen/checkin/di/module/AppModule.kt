@@ -20,6 +20,7 @@ package com.hellofresh.barcodescanner.presentation.di.module
 import com.addhen.checkin.AppUtilities
 import com.addhen.checkin.CheckinApp
 import com.addhen.checkin.TimberUtility
+import com.addhen.checkin.util.CoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -39,4 +40,8 @@ internal object AppModule {
   @Provides
   @JvmStatic
   fun provideAppUtilities(timberUtility: TimberUtility): AppUtilities = AppUtilities(timberUtility)
+
+  @Provides
+  @JvmStatic
+  fun provideCoroutineDispatchers() = CoroutineDispatchers()
 }
