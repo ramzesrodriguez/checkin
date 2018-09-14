@@ -1,7 +1,7 @@
 object Versions {
   const val APPLICATION_ID = "com.addhen.checkin"
   const val KOTLIN = "1.2.51"
-  const val GRADLE_PLUGIN = "3.2.0-beta04"
+  const val GRADLE_PLUGIN = "3.2.0-beta05"
   const val KTLINT_GRADLE = "3.0.0"
   const val DETEKT = "1.0.0.RC6-3"
   const val SOURCE_COMPATIBILITY = "1.8"
@@ -21,4 +21,7 @@ object Versions {
   internal const val GLIDE = "4.8.0-SNAPSHOT"
   internal const val KTX = "1.0.0-alpha1"
   internal const val PLAY_SERVICES = "11.8.0"
+  internal const val MOCKITO_KOTLIN = "1.6.0"
+  internal const val MOCKITO_ANDROID = "2.8.8"
+  internal const val MOCKITO_INLINE = "2.19.1"
 }

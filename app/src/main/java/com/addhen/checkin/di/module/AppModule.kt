@@ -20,10 +20,8 @@ package com.hellofresh.barcodescanner.presentation.di.module
 import com.addhen.checkin.AppUtilities
 import com.addhen.checkin.CheckinApp
 import com.addhen.checkin.TimberUtility
-import com.addhen.checkin.util.RxScheduler
 import dagger.Module
 import dagger.Provides
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
 /**
@@ -40,16 +38,5 @@ internal object AppModule {
 
   @Provides
   @JvmStatic
-  fun provideCompositeDisposable() = CompositeDisposable()
-
-  @Provides
-  @JvmStatic
   fun provideAppUtilities(timberUtility: TimberUtility): AppUtilities = AppUtilities(timberUtility)
-
-  @Singleton
-  @Provides
-  @JvmStatic
-  fun provideRxScheduler(): RxScheduler {
-    return RxScheduler()
-  }
 }

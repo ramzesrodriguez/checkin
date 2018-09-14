@@ -18,12 +18,10 @@
 package com.addhen.checkin.data.repository
 
 import com.addhen.checkin.data.model.Post
-import io.reactivex.Flowable
-import io.reactivex.Single
 
 interface PostRepository {
 
-  fun getPosts(limit: Int, page: Int): Flowable<List<Post>>
+  suspend fun getPosts(limit: Int, page: Int): List<Post>
 
-  fun getPost(id: String): Single<Post>
+  suspend fun getPost(id: String): Post
 }

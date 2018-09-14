@@ -6,6 +6,7 @@ object Dependencies {
 
   object Kotlin {
     val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN}"
+    val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0"
   }
 
   object Support {
@@ -20,12 +21,6 @@ object Dependencies {
     val runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.ARCH_COMPONENTS}"
     val extentions = "androidx.lifecycle:lifecycle-extensions:${Versions.ARCH_COMPONENTS}"
     val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.ARCH_COMPONENTS}"
-  }
-
-  object RxJava2 {
-    val core = "io.reactivex.rxjava2:rxjava:2.1.8"
-    val android = "io.reactivex.rxjava2:rxandroid:2.0.1"
-    val kotlin = "io.reactivex.rxjava2:rxkotlin:2.2.0"
   }
 
   object Glide {
