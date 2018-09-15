@@ -68,22 +68,14 @@ android {
 }
 
 dependencies {
-  api(project(":data"))
-  // Support library
-  implementation(Dependencies.Support.design)
-  implementation(Dependencies.Support.recyclerView)
-  implementation(Dependencies.Support.customtabs)
-  implementation(Dependencies.Support.cardview)
-  implementation(Dependencies.Support.constraintLayout)
-  implementation(Dependencies.ktx)
+  implementation(project(":data"))
+  implementation(project(":main"))
   // Firebase
   implementation(Dependencies.Firebase.uiAuth)
   implementation(Dependencies.Firebase.crash)
   // Google maps
   implementation(Dependencies.Map.google)
   implementation(Dependencies.Map.utils)
-  implementation(Dependencies.Glide.core)
-  implementation(Dependencies.Glide.okhttp3)
   // Annotation processors
   kapt(Dependencies.Databinding.compiler)
   kapt(Dependencies.Dagger.compiler)

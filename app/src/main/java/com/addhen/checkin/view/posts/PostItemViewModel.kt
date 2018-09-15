@@ -17,9 +17,9 @@
 
 package com.addhen.checkin.view.posts
 
+import com.addhen.checkin.base.CoroutineDispatchers
+import com.addhen.checkin.base.view.BaseViewModel
 import com.addhen.checkin.data.model.Post
-import com.addhen.checkin.util.CoroutineDispatchers
-import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
 import javax.inject.Inject
 
 class PostItemViewModel @Inject constructor(

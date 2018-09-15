@@ -24,10 +24,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.addhen.checkin.base.Resource
+import com.addhen.checkin.base.extension.snackbar
+import com.addhen.checkin.base.view.BaseFragment
 import com.addhen.checkin.databinding.PostsFragmentBinding
-import com.addhen.checkin.view.base.BaseFragment
-import com.addhen.checkin.view.base.Resource
-import com.addhen.checkin.view.snackbar
 
 class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
     clazz = PostsViewModel::class.java) {

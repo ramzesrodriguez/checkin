@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">main</string>
+  <!-- Bottom Navigation View -->
+  <string name="bottom_nav_menu_list">List</string>
+  <string name="bottom_nav_menu_map">Map</string>
+  <string name="bottom_nav_menu_friends">Friends</string>
+  <string name="bottom_nav_menu_notices">Notices</string>
+</resources>

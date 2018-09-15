@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/checkin.iml" filepath="$PROJECT_DIR$/checkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
     </modules>
   </component>
 </project>

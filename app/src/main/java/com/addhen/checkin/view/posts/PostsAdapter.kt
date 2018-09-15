@@ -20,9 +20,9 @@ package com.addhen.checkin.view.posts
 import android.content.Context
 import android.view.ViewGroup
 import com.addhen.checkin.R
+import com.addhen.checkin.base.view.BaseBindingHolder
+import com.addhen.checkin.base.view.BaseRecyclerAdapter
 import com.addhen.checkin.databinding.PostItemBinding
-import com.hellofresh.barcodescanner.presentation.view.base.BaseBindingHolder
-import com.hellofresh.barcodescanner.presentation.view.base.BaseRecyclerAdapter
 
 class PostsAdapter(
     context: Context
@@ -46,6 +46,6 @@ class PostsAdapter(
     val viewModel = getItem(position)
     val itemBinding = holder.binding
     itemBinding.viewModel = viewModel
-    itemBinding.executePendingBindings()
+    //itemBinding.ex
   }
 }

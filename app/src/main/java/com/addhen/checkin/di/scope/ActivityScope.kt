@@ -1,4 +1,4 @@
-package com.hellofresh.barcodescanner.presentation.di.scope
+package com.addhen.checkin.di.scope
 
 import javax.inject.Scope
 

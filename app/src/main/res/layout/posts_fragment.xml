@@ -16,13 +16,13 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <data>
 
     <variable
         name="viewModel"
-        type="com.addhen.checkin.view.posts.PostsViewModel" />
+        type="com.addhen.checkin.view.posts.PostsViewModel"/>
   </data>
 
   <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -45,7 +45,7 @@
             android:id="@+id/posts_recycler_view"
             style="@style/BaseRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"/>
       </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
       <ProgressBar
@@ -54,21 +54,20 @@
           android:layout_height="wrap_content"
           android:layout_gravity="center"
           android:indeterminate="true"
-          android:visibility="gone" />
+          android:visibility="gone"/>
 
       <TextView
           android:id="@+id/empty_view_header"
           style="@style/BaseEmptyView"
           android:text="@string/empty_post_list"
-          android:visibility="gone" />
+          android:visibility="gone"/>
 
       <com.google.android.material.floatingactionbutton.FloatingActionButton
           android:id="@+id/fab"
           style="@style/BaseFabView"
           android:layout_width="wrap_content"
-          app:layout_behavior="com.addhen.checkin.presentation.view.FabBehavior"
           app:pressedTranslationZ="@dimen/translation_z_12dp"
-          app:srcCompat="@drawable/ic_add_white_24dp" />
+          app:srcCompat="@drawable/ic_add_white_24dp"/>
     </FrameLayout>
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

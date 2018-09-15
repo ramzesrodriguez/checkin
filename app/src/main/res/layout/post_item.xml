@@ -17,9 +17,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
-
   <data>
-
     <variable
         name="viewModel"
         type="com.addhen.checkin.view.posts.PostItemViewModel"/>
@@ -64,7 +62,7 @@
             android:layout_marginBottom="@dimen/space_8dp"
             android:layout_marginStart="@dimen/space_8dp"
             android:layout_toEndOf="@id/user_profile"
-            android:layout_toStartOf="@+id/post_timestamp"
+            android:layout_toStartOf="@id/post_timestamp"
             android:textAppearance="@style/TextSubheading"
             app:userName="@{viewModel.post.user}"/>
 
@@ -82,51 +80,22 @@
         <TextView
             android:id="@+id/post_place_name"
             style="@style/PostMetaTextCaption"
-            android:layout_below="@+id/user_name"
+            android:layout_below="@id/user_name"
             android:layout_marginStart="@dimen/space_8dp"
             android:layout_toEndOf="@id/user_profile"
-            android:layout_toStartOf="@+id/post_timestamp"
+            android:layout_toStartOf="@id/post_timestamp"
             android:text="@{viewModel.post.location.name}"/>
 
         <TextView
             android:id="@+id/post_city_country"
             style="@style/PostMetaTextCaption"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/post_timestamp"
-            android:layout_toEndOf="@+id/post_place_name"
+            android:layout_below="@id/post_timestamp"
+            android:layout_toEndOf="@id/post_place_name"
             android:gravity="end"
             android:text="@{viewModel.post.location.country}"/>
       </RelativeLayout>
 
-      <com.addhen.checkin.view.widget.SquaredFrameLayout
-          android:id="@+id/post_image_container"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/post_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/posts"
-            android:scaleType="centerCrop"
-            app:photoImageUrl="@{viewModel.post.photo}"/>
-
-        <View
-            android:id="@+id/post_like_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_like_circle_background"
-            android:visibility="invisible"/>
-
-        <ImageView
-            android:id="@+id/post_like"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/like"
-            android:scaleType="center"
-            android:src="@{viewModel.liked ? @drawable/ic_favorite_red_24dp : @drawable/ic_favorite_border_grey_24dp}"
-            android:visibility="invisible"/>
-      </com.addhen.checkin.view.widget.SquaredFrameLayout>
 
       <TextView
           android:id="@+id/post_content"

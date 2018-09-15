@@ -7,6 +7,7 @@ plugins {
 
 android {
   compileSdkVersion(Versions.COMPILE_SDK)
+  dataBinding.isEnabled = true
   defaultConfig {
     minSdkVersion(Versions.MIN_SDK)
   }
@@ -18,6 +19,15 @@ android {
 dependencies {
   api(Dependencies.Kotlin.stdLib)
   api(Dependencies.Kotlin.coroutines)
+  // Support library
+  api(Dependencies.Support.design)
+  api(Dependencies.Support.recyclerView)
+  api(Dependencies.Support.customtabs)
+  api(Dependencies.Support.cardview)
+  api(Dependencies.Support.constraintLayout)
+  api(Dependencies.ktx)
+  api(Dependencies.Glide.core)
+  api(Dependencies.Glide.okhttp3)
   // Architecture components lifecycle
   api(Dependencies.Lifecycle.runtime)
   api(Dependencies.Lifecycle.extentions)
@@ -26,4 +36,7 @@ dependencies {
   api(Dependencies.Dagger.android)
   api(Dependencies.Dagger.support)
   api(Dependencies.timber)
+  kapt(Dependencies.Databinding.compiler)
+  kapt(Dependencies.Lifecycle.compiler)
+  kapt(Dependencies.Glide.compiler)
 }

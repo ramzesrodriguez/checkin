@@ -18,7 +18,7 @@
 package com.addhen.checkin.view.posts
 
 import androidx.lifecycle.ViewModel
-import com.hellofresh.hellofridge.injection.di.ViewModelKey
+import com.addhen.checkin.base.di.module.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

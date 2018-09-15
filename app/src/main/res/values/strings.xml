@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <!-- App -->
-  <string name="app_name">CheckIn</string>
   <string name="retry">Retry</string>
   <string name="save">Save</string>
   <string name="okay">Okay</string>
-  <string name="logo_description">App logo</string>
   <string name="share">Share</string>
   <string name="like">Like</string>
   <!-- Posts -->
@@ -20,11 +18,6 @@
   <string name="empty_post_list">No posts yet.</string>
   <string name="no_comments">No comments.</string>
   <string name="comment">Comment</string>
-  <!-- Bottom Navigation View -->
-  <string name="bottom_nav_menu_list">List</string>
-  <string name="bottom_nav_menu_map">Map</string>
-  <string name="bottom_nav_menu_friends">Friends</string>
-  <string name="bottom_nav_menu_notices">Notices</string>
   <string name="main_menu_search">Search</string>
   <string name="main_menu_profile">Profile</string>
   <!-- Data error messages -->
@@ -32,8 +25,8 @@
   <string name="exception_message_add_post">Couldn\'t add a post. An error occurred</string>
   <!-- Login / Register messages -->
   <string name="exception_message_error_network">Sorry there is a network error. Try
-        the action again.
-    </string>
+    the action again.
+  </string>
   <string name="sign_in_cancelled">Sign in cancelled</string>
   <!-- User profile -->
   <string name="user_profile">User Profile</string>

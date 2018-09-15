@@ -17,7 +17,7 @@
 
 package com.addhen.checkin
 
-import com.hellofresh.barcodescanner.presentation.di.component.DaggerAppComponent
+import com.addhen.checkin.di.DaggerAppComponent
 import dagger.android.support.DaggerApplication
 import javax.inject.Inject
 

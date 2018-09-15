@@ -1,7 +1,8 @@
-package com.hellofresh.barcodescanner.presentation.di.module
+package com.addhen.checkin.di
 
 import com.addhen.checkin.data.repository.PostDataRepository
 import com.addhen.checkin.data.repository.PostRepository
+import com.addhen.checkin.di.module.AppModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

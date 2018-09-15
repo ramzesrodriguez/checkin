@@ -15,12 +15,12 @@
  *
  */
 
-package com.hellofresh.barcodescanner.presentation.di.module
+package com.addhen.checkin.di.module
 
 import com.addhen.checkin.AppUtilities
 import com.addhen.checkin.CheckinApp
+import com.addhen.checkin.base.CoroutineDispatchers
 import com.addhen.checkin.TimberUtility
-import com.addhen.checkin.util.CoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
