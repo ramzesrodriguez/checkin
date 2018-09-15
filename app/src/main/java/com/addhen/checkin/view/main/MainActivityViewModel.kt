@@ -17,10 +17,13 @@
 
 package com.addhen.checkin.view.main
 
+import com.addhen.checkin.util.CoroutineDispatchers
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor() : BaseViewModel() {
+class MainActivityViewModel @Inject constructor(
+    dispatchers: CoroutineDispatchers
+) : BaseViewModel(dispatchers) {
 
   fun shouldSignInOrNot() {}
 }

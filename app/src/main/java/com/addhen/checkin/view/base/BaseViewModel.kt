@@ -18,20 +18,19 @@
 package com.hellofresh.barcodescanner.presentation.view.base
 
 import androidx.lifecycle.ViewModel
+import com.addhen.checkin.util.CoroutineDispatchers
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.android.Main
 
 /**
  * BaseViewModel base class that is bound to Activity lifecycle and disposes subscriptions on pause
  * call.
  */
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel(dispatchers: CoroutineDispatchers) : ViewModel() {
 
   private val job = Job()
 
-  protected val scope = CoroutineScope(job + Dispatchers.Main)
+  protected val scope = CoroutineScope(job + dispatchers.main)
 
   override fun onCleared() {
     super.onCleared()

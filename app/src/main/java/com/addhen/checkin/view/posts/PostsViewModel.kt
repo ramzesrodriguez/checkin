@@ -33,7 +33,8 @@ import javax.inject.Inject
 
 class PostsViewModel @Inject constructor(
     private val dispatchers: CoroutineDispatchers,
-    private val postDataRepository: PostDataRepository) : BaseViewModel(), LifecycleObserver {
+    private val postDataRepository: PostDataRepository
+) : BaseViewModel(dispatchers), LifecycleObserver {
 
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()
 
@@ -63,9 +64,7 @@ class PostsViewModel @Inject constructor(
   }
 
   private fun onPostLoaded(posts: List<Post>) {
-    val postItemViewModels = posts.map { post ->
-      PostItemViewModel(post)
-    }
+    val postItemViewModels = posts.map { PostItemViewModel(dispatchers, it) }
     this.posts.value = Resource.success(postItemViewModels)
   }
 
