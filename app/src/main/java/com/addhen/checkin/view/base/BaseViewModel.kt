@@ -18,22 +18,23 @@
 package com.hellofresh.barcodescanner.presentation.view.base
 
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.DefaultDispatcher
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.android.Main
 
 /**
  * BaseViewModel base class that is bound to Activity lifecycle and disposes subscriptions on pause
  * call.
  */
-open class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
-  private val viewModelJob = Job()
+  private val job = Job()
 
-  fun launchWithParent(
-      context: CoroutineContext = DefaultDispatcher,
-      block: suspend CoroutineScope.() -> Unit
-  ) = launch(context = context, parent = viewModelJob, block = block)
+  protected val scope = CoroutineScope(job + Dispatchers.Main)
+
+  override fun onCleared() {
+    super.onCleared()
+    job.cancel()
+  }
 }

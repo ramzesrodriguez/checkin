@@ -26,6 +26,8 @@ import com.addhen.checkin.data.repository.PostDataRepository
 import com.addhen.checkin.util.CoroutineDispatchers
 import com.addhen.checkin.view.base.Resource
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -46,13 +48,17 @@ class PostsViewModel @Inject constructor(
 
   private fun loadPosts() {
 
-    launchWithParent(dispatchers.main) {
+    scope.launch {
       posts.value = Resource.loading()
-      try {
-        onPostLoaded(postDataRepository.getPosts())
-      } catch (e: Exception) {
-        onError(e)
+      var posts = emptyList<Post>()
+      withContext(dispatchers.computation) {
+        try {
+          posts = postDataRepository.getPosts()
+        } catch (e: Exception) {
+          onError(e)
+        }
       }
+      onPostLoaded(posts);
     }
   }
 
