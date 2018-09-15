@@ -23,19 +23,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.OnLifecycleEvent
 import com.addhen.checkin.data.model.Post
 import com.addhen.checkin.data.repository.PostDataRepository
+import com.addhen.checkin.util.CoroutineDispatchers
 import com.addhen.checkin.view.base.Resource
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
 import timber.log.Timber
 import javax.inject.Inject
 
 class PostsViewModel @Inject constructor(
+    private val dispatchers: CoroutineDispatchers,
     private val postDataRepository: PostDataRepository) : BaseViewModel(), LifecycleObserver {
 
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()
 
   @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
   fun onResume() {
-    super.onCreate()
     loadPosts()
   }
 
@@ -44,9 +45,15 @@ class PostsViewModel @Inject constructor(
   }
 
   private fun loadPosts() {
-    postDataRepository.getPosts()
-        .doOnSubscribe { posts.value = Resource.loading() }
-        .appSubscribeBy(this::onPostLoaded, this::onError)
+
+    launchWithParent(dispatchers.main) {
+      posts.value = Resource.loading()
+      try {
+        onPostLoaded(postDataRepository.getPosts())
+      } catch (e: Exception) {
+        onError(e)
+      }
+    }
   }
 
   private fun onPostLoaded(posts: List<Post>) {

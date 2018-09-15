@@ -18,23 +18,21 @@
 package com.addhen.checkin.data.repository
 
 import com.addhen.checkin.data.model.Post
-import io.reactivex.Flowable
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class PostDataRepository @Inject constructor() : PostRepository {
 
-  fun getPosts() = getPosts(10, 0)
+  suspend fun getPosts() = getPosts(10, 0)
 
-  override fun getPosts(limit: Int, page: Int): Flowable<List<Post>> {
+  override suspend fun getPosts(limit: Int, page: Int): List<Post> {
     // TODO get data from a data source
-    return Flowable.just(emptyList())
+    return emptyList()
   }
 
-  override fun getPost(id: String): Single<Post> {
+  override suspend fun getPost(id: String): Post {
     // TODO get data from a data source
-    return Single.just(null)
+    TODO()
   }
 }

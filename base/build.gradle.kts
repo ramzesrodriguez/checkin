@@ -17,13 +17,11 @@ android {
 
 dependencies {
   api(Dependencies.Kotlin.stdLib)
+  api(Dependencies.Kotlin.coroutines)
   // Architecture components lifecycle
   api(Dependencies.Lifecycle.runtime)
   api(Dependencies.Lifecycle.extentions)
   // Utility
-  api(Dependencies.RxJava2.core)
-  api(Dependencies.RxJava2.kotlin)
-  implementation(Dependencies.RxJava2.android)
   api(Dependencies.Dagger.core)
   api(Dependencies.Dagger.android)
   api(Dependencies.Dagger.support)

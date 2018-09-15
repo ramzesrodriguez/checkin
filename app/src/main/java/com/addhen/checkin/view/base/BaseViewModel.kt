@@ -18,29 +18,22 @@
 package com.hellofresh.barcodescanner.presentation.view.base
 
 import androidx.lifecycle.ViewModel
-import com.addhen.checkin.ext.RxJavaExt
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.experimental.CoroutineScope
+import kotlinx.coroutines.experimental.DefaultDispatcher
+import kotlinx.coroutines.experimental.Job
+import kotlinx.coroutines.experimental.launch
+import kotlin.coroutines.experimental.CoroutineContext
 
 /**
  * BaseViewModel base class that is bound to Activity lifecycle and disposes subscriptions on pause
  * call.
  */
-open class BaseViewModel : ViewModel(), RxJavaExt {
+open class BaseViewModel : ViewModel() {
 
-  override var compositeDisposable = CompositeDisposable()
+  private val viewModelJob = Job()
 
-  open fun onCreate() {
-    if (compositeDisposable.isDisposed) {
-      compositeDisposable = CompositeDisposable()
-    }
-  }
-
-  open fun onPause() {
-    compositeDisposable.clear()
-  }
-
-  override fun onCleared() {
-    super.onCleared()
-    onPause()
-  }
+  fun launchWithParent(
+      context: CoroutineContext = DefaultDispatcher,
+      block: suspend CoroutineScope.() -> Unit
+  ) = launch(context = context, parent = viewModelJob, block = block)
 }

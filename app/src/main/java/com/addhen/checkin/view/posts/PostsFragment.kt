@@ -25,17 +25,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.addhen.checkin.databinding.PostsFragmentBinding
-import com.addhen.checkin.util.RxScheduler
 import com.addhen.checkin.view.base.BaseFragment
 import com.addhen.checkin.view.base.Resource
 import com.addhen.checkin.view.snackbar
-import javax.inject.Inject
 
 class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
     clazz = PostsViewModel::class.java) {
-
-  @Inject
-  lateinit var rxScheduler: RxScheduler
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
@@ -55,7 +50,6 @@ class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
       override fun getExtraLayoutSpace(state: RecyclerView.State) = 300
     }
     binding.postsRecyclerView.layoutManager = linearLayoutManager
-    viewModel.onCreate()
     viewModel.posts.observe(this, Observer {
       when (it?.status) {
         Resource.Status.SUCCESS -> {
