@@ -26,40 +26,41 @@ import com.addhen.checkin.data.repository.PostDataRepository
 import com.addhen.checkin.util.CoroutineDispatchers
 import com.addhen.checkin.view.base.Resource
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
 class PostsViewModel @Inject constructor(
     private val dispatchers: CoroutineDispatchers,
-    private val postDataRepository: PostDataRepository) : BaseViewModel(), LifecycleObserver {
+    private val postDataRepository: PostDataRepository
+) : BaseViewModel(dispatchers), LifecycleObserver {
 
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()
 
   @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-  fun onResume() {
-    loadPosts()
-  }
-
   fun onSwipeRefresh() {
     loadPosts()
   }
 
   private fun loadPosts() {
 
-    launchWithParent(dispatchers.main) {
+    scope.launch {
       posts.value = Resource.loading()
-      try {
-        onPostLoaded(postDataRepository.getPosts())
-      } catch (e: Exception) {
-        onError(e)
+      var posts = emptyList<Post>()
+      withContext(dispatchers.computation) {
+        try {
+          posts = postDataRepository.getPosts()
+        } catch (e: Exception) {
+          onError(e)
+        }
       }
+      onPostLoaded(posts)
     }
   }
 
   private fun onPostLoaded(posts: List<Post>) {
-    val postItemViewModels = posts.map { post ->
-      PostItemViewModel(post)
-    }
+    val postItemViewModels = posts.map { PostItemViewModel(dispatchers, it) }
     this.posts.value = Resource.success(postItemViewModels)
   }
 

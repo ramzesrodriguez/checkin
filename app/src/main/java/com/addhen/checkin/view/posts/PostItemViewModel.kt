@@ -18,10 +18,13 @@
 package com.addhen.checkin.view.posts
 
 import com.addhen.checkin.data.model.Post
+import com.addhen.checkin.util.CoroutineDispatchers
 import com.hellofresh.barcodescanner.presentation.view.base.BaseViewModel
 import javax.inject.Inject
 
-class PostItemViewModel @Inject constructor(val post: Post) : BaseViewModel() {
+class PostItemViewModel @Inject constructor(
+    dispatchers: CoroutineDispatchers, val post: Post
+) : BaseViewModel(dispatchers) {
 
   fun onClickPost() {
     // TODO navigate to post details page
