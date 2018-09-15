@@ -39,10 +39,6 @@ class PostsViewModel @Inject constructor(
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()
 
   @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-  fun onResume() {
-    loadPosts()
-  }
-
   fun onSwipeRefresh() {
     loadPosts()
   }
@@ -59,7 +55,7 @@ class PostsViewModel @Inject constructor(
           onError(e)
         }
       }
-      onPostLoaded(posts);
+      onPostLoaded(posts)
     }
   }
 
