@@ -6,6 +6,7 @@ buildscript {
     google()
     jcenter()
     maven(url = "https://plugins.gradle.org/m2/")
+    maven(url = "http://dl.bintray.com/kotlin/kotlin-eap")
   }
   dependencies {
     classpath("com.android.tools.build:gradle:${Versions.GRADLE_PLUGIN}")
@@ -29,6 +30,7 @@ allprojects {
     // the stable version of Glide doesn't use Jetpack's namespacess
     // even though Jetifier is enabled.
     maven(url = "http://oss.sonatype.org/content/repositories/snapshots")
+    maven(url = "http://dl.bintray.com/kotlin/kotlin-eap")
   }
 }
 
