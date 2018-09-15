@@ -22,14 +22,11 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextSwitcher
-import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.addhen.checkin.base.R
-import com.addhen.checkin.base.util.DateTimeUtils
-import java.util.Date
 
 @BindingAdapter(value = ["buttonDrawableRes"])
 fun setButtonDrawableRes(button: ImageButton, @DrawableRes drawableResId: Int) {
@@ -63,23 +60,6 @@ fun setPhotoImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDime
 fun setCurrentText(view: TextSwitcher, text: String) {
   view.setCurrentText(text)
 }
-
-/*@BindingAdapter(value = ["userImageUrl", "userImageSize"])
-fun setUserImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDimen: Float) {
-  setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_user_placeholder)
-}*/
-
-@BindingAdapter(value = ["timeAgo"])
-fun setTimeAgo(textView: TextView, date: Date?) {
-  if (date != null) {
-    textView.text = DateTimeUtils.getTimeAgo(date.time)
-  }
-}
-
-/*@BindingAdapter(value = ["userName"])
-fun setUsername(textView: TextView, user: User) {
-  textView.text = if (user.fullName != null) user.fullName else "@" + user.username
-}*/
 
 @BindingAdapter(value = ["coverFadeBackground"])
 fun setCoverFadeBackground(view: View, @ColorRes colorResId: Int) {

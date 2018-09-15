@@ -21,11 +21,7 @@ import android.app.Activity
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
-import com.addhen.checkin.BuildConfig
-import com.addhen.checkin.R
 import com.addhen.checkin.data.model.Post
-import com.firebase.ui.auth.AuthUI
-import java.util.Arrays
 import javax.inject.Inject
 
 class Navigation @Inject constructor(activity: AppCompatActivity) {
@@ -45,16 +41,16 @@ class Navigation @Inject constructor(activity: AppCompatActivity) {
     //activity.startActivity(intent)
   }
 
-  fun toLogin() {
-    activity.startActivityForResult(AuthUI.getInstance()
-        .createSignInIntentBuilder()
-        .setLogo(R.mipmap.ic_launcher)
-        .setAvailableProviders(Arrays.asList(AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.EmailBuilder().build()))
-        .setTheme(R.style.AppTheme_Login_Dark)
-        .setIsSmartLockEnabled(!BuildConfig.DEBUG)
-        .build(), RC_SIGN_IN)
-  }
+  /* fun toLogin() {
+     activity.startActivityForResult(AuthUI.getInstance()
+         .createSignInIntentBuilder()
+         .setLogo(R.mipmap.ic_launcher)
+         .setAvailableProviders(Arrays.asList(AuthUI.IdpConfig.GoogleBuilder().build(),
+             AuthUI.IdpConfig.EmailBuilder().build()))
+         .setTheme(R.style.AppTheme_Login_Dark)
+         .setIsSmartLockEnabled(!BuildConfig.DEBUG)
+         .build(), RC_SIGN_IN)
+   }*/
 
   companion object {
     const val RC_SIGN_IN = 123
