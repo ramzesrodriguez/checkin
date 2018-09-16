@@ -1,1 +1,1 @@
-include(":app", ":base", ":main", ":data")
+include(":app", ":base", ":main", ":posts", ":data")

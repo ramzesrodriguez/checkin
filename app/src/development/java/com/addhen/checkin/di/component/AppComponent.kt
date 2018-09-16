@@ -22,7 +22,7 @@ import com.addhen.checkin.base.di.module.ViewModelBuilder
 import com.addhen.checkin.di.module.DevelopmentAppModule
 import com.addhen.checkin.di.scope.ActivityScope
 import com.addhen.checkin.main.view.MainBuilder
-import com.addhen.checkin.view.posts.PostsBuilder
+import com.addhen.checkin.posts.view.PostsBuilder
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

@@ -26,4 +26,14 @@
   <dimen name="keyline_1">72dp</dimen>
   <!-- Floating action button -->
   <dimen name="fab_margin">@dimen/space_16dp</dimen>
+
+  <!-- User -->
+  <dimen name="user_avatar_80dp">80dp</dimen>
+  <dimen name="user_avatar_40dp">40dp</dimen>
+  <!-- Social icons-->
+  <dimen name="social_icons">48dp</dimen>
+  <!-- Post -->
+  <dimen name="detail_header_height">200dp</dimen>
+  <!-- Text input layout seems to add 4dp of extra padding. The following account for this -->
+  <dimen name="til_margin_fix">-4dp</dimen>
 </resources>
