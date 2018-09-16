@@ -15,7 +15,7 @@
  *
  */
 
-package com.addhen.checkin.databinding
+package com.addhen.checkin.posts.databinding
 
 import android.widget.ImageView
 import android.widget.TextView
@@ -44,10 +44,10 @@ fun setTimeAgo(textView: TextView, date: Date?) {
 }
 
 private fun setImageUrlWithSize(
-    imageView: ImageView,
-    imageUrl: String?,
-    sizeInDimen: Float,
-    placeholderResId: Int
+  imageView: ImageView,
+  imageUrl: String?,
+  sizeInDimen: Float,
+  placeholderResId: Int
 ) {
   if (imageUrl.isNullOrEmpty()) {
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))

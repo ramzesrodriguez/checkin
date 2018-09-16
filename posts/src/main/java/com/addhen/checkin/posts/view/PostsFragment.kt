@@ -34,9 +34,9 @@ class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
 ) {
 
   override fun onCreateView(
-      inflater: LayoutInflater,
-      container: ViewGroup?,
-      savedInstanceState: Bundle?
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
   ): View? {
     binding = PostsFragmentBinding.inflate(layoutInflater, container, false)
     return binding.root

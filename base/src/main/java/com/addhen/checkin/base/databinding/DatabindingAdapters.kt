@@ -44,7 +44,7 @@ fun setPhotoImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDime
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, R.color.grey200))
     return
   }
-  val size = Math.round(sizeInDimen)
+  // val size = Math.round(sizeInDimen)
   /*GlideApp.with(imageView.context)
       .load(imageUrl)
       .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -76,10 +76,10 @@ private fun setImageUrlWithSize(
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
     return
   }
-  val size = Math.round(sizeInDimen)
   imageView.background = ContextCompat.getDrawable(
       imageView.context, R.drawable.shap_circle_border_grey200
   )
+  // val size = Math.round(sizeInDimen)
   /*GlideApp.with(imageView.context)
       .load(imageUrl)
       .diskCacheStrategy(DiskCacheStrategy.ALL)

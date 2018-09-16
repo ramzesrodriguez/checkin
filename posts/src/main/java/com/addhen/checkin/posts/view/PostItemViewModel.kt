@@ -23,8 +23,8 @@ import com.addhen.checkin.data.model.Post
 import javax.inject.Inject
 
 class PostItemViewModel @Inject constructor(
-    dispatchers: CoroutineDispatchers,
-    val post: Post
+  dispatchers: CoroutineDispatchers,
+  val post: Post
 ) : BaseViewModel(dispatchers) {
 
   fun onClickPost() {
