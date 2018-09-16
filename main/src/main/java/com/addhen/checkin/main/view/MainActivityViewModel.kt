@@ -22,7 +22,7 @@ import com.addhen.checkin.base.view.BaseViewModel
 import javax.inject.Inject
 
 class MainActivityViewModel @Inject constructor(
-    dispatchers: CoroutineDispatchers
+  dispatchers: CoroutineDispatchers
 ) : BaseViewModel(dispatchers) {
 
   fun shouldSignInOrNot() {}

@@ -28,7 +28,7 @@ object DateTimeUtils {
   fun getTimeAgo(time: Long): String? {
     var time = time
     if (time < 1000000000000L) {
-      //if timestamp given in seconds, convert to millis
+      // if timestamp given in seconds, convert to millis
       time *= 1000
     }
     val now = System.currentTimeMillis()

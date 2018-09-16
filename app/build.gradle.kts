@@ -1,5 +1,3 @@
-import org.jlleitschuh.gradle.ktlint.ReporterType
-
 plugins {
   id("com.android.application")
   id("kotlin-android")
@@ -95,7 +93,6 @@ kapt {
 ktlint {
   version = Versions.KTLINT
   android = true
-  reporter = ReporterType.CHECKSTYLE
   ignoreFailures = false
 }
 

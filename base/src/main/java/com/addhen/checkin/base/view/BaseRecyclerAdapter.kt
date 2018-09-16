@@ -24,7 +24,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseRecyclerAdapter<T, V : RecyclerView.ViewHolder> constructor(
-    val context: Context) : RecyclerView.Adapter<V>() {
+  val context: Context
+) : RecyclerView.Adapter<V>() {
 
   protected abstract fun areItemsTheSame(oldItem: T, newItem: T): Boolean
   protected abstract fun areContentsTheSame(oldItem: T, newItem: T): Boolean

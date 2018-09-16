@@ -25,7 +25,7 @@ import com.addhen.checkin.base.view.BaseRecyclerAdapter
 import com.addhen.checkin.databinding.PostItemBinding
 
 class PostsAdapter(
-    context: Context
+  context: Context
 ) : BaseRecyclerAdapter<PostItemViewModel, BaseBindingHolder<PostItemBinding>>(context) {
 
   override fun areItemsTheSame(oldItem: PostItemViewModel, newItem: PostItemViewModel): Boolean {
@@ -37,8 +37,9 @@ class PostsAdapter(
   }
 
   override fun onCreateViewHolder(
-      parent: ViewGroup,
-      viewType: Int): BaseBindingHolder<PostItemBinding> {
+    parent: ViewGroup,
+    viewType: Int
+  ): BaseBindingHolder<PostItemBinding> {
     return BaseBindingHolder(context, parent, R.layout.post_item)
   }
 
@@ -46,6 +47,6 @@ class PostsAdapter(
     val viewModel = getItem(position)
     val itemBinding = holder.binding
     itemBinding.viewModel = viewModel
-    //itemBinding.ex
+    // itemBinding.ex
   }
 }

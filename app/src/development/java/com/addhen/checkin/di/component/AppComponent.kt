@@ -15,10 +15,11 @@
  *
  */
 
-package com.addhen.checkin.di
+package com.addhen.checkin.di.component
 
 import com.addhen.checkin.CheckinApp
 import com.addhen.checkin.base.di.module.ViewModelBuilder
+import com.addhen.checkin.di.module.DevelopmentAppModule
 import com.addhen.checkin.di.scope.ActivityScope
 import com.addhen.checkin.main.view.MainBuilder
 import com.addhen.checkin.view.posts.PostsBuilder

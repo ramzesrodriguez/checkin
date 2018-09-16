@@ -15,14 +15,14 @@
  *
  */
 
-package com.hellofresh.barcodescanner.presentation.di.component
+package com.addhen.checkin.di.component
 
 import com.addhen.checkin.CheckinApp
-import com.addhen.checkin.view.main.MainBuilder
+import com.addhen.checkin.base.di.module.ViewModelBuilder
+import com.addhen.checkin.di.module.ProductionAppModule
+import com.addhen.checkin.di.scope.ActivityScope
+import com.addhen.checkin.main.view.MainBuilder
 import com.addhen.checkin.view.posts.PostsBuilder
-import com.hellofresh.barcodescanner.presentation.di.module.ProductionAppModule
-import com.hellofresh.barcodescanner.presentation.di.module.ViewModelBuilder
-import com.hellofresh.barcodescanner.presentation.di.scope.ActivityScope
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule

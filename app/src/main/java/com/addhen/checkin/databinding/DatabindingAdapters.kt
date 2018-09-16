@@ -31,7 +31,6 @@ fun setUserImageUrlWithSize(imageView: ImageView, imageUrl: String?, sizeInDimen
   setImageUrlWithSize(imageView, imageUrl, sizeInDimen, R.drawable.ic_user_placeholder)
 }
 
-
 @BindingAdapter(value = ["userName"])
 fun setUsername(textView: TextView, user: User) {
   textView.text = if (user.fullName != null) user.fullName else "@" + user.username
@@ -44,8 +43,12 @@ fun setTimeAgo(textView: TextView, date: Date?) {
   }
 }
 
-private fun setImageUrlWithSize(imageView: ImageView, imageUrl: String?,
-                                sizeInDimen: Float, placeholderResId: Int) {
+private fun setImageUrlWithSize(
+  imageView: ImageView,
+  imageUrl: String?,
+  sizeInDimen: Float,
+  placeholderResId: Int
+) {
   if (imageUrl.isNullOrEmpty()) {
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
     return

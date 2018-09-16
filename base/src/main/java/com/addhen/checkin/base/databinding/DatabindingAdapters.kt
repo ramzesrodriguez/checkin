@@ -66,8 +66,12 @@ fun setCoverFadeBackground(view: View, @ColorRes colorResId: Int) {
   view.setBackgroundResource(colorResId)
 }
 
-private fun setImageUrlWithSize(imageView: ImageView, imageUrl: String?,
-                                sizeInDimen: Float, placeholderResId: Int) {
+private fun setImageUrlWithSize(
+  imageView: ImageView,
+  imageUrl: String?,
+  sizeInDimen: Float,
+  placeholderResId: Int
+) {
   if (imageUrl.isNullOrEmpty()) {
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
     return
@@ -87,8 +91,11 @@ private fun setImageUrlWithSize(imageView: ImageView, imageUrl: String?,
       .into(imageView)*/
 }
 
-private fun setImageUrl(imageView: ImageView, imageUrl: String?,
-                        @DrawableRes placeholderResId: Int) {
+private fun setImageUrl(
+  imageView: ImageView,
+  imageUrl: String?,
+  @DrawableRes placeholderResId: Int
+) {
   if (imageUrl.isNullOrEmpty()) {
     imageView.setImageDrawable(ContextCompat.getDrawable(imageView.context, placeholderResId))
     return

@@ -36,11 +36,12 @@ import javax.inject.Inject
  * and it will automatically setup the layout and menu for you.
  */
 abstract class BaseActivity<out T : BaseViewModel, out B : ViewDataBinding>(
-    @LayoutRes
-    protected val layout: Int,
-    @MenuRes
-    private val menu: Int = 0,
-    clazz: Class<T>) : DaggerAppCompatActivity() {
+  @LayoutRes
+  protected val layout: Int,
+  @MenuRes
+  private val menu: Int = 0,
+  clazz: Class<T>
+) : DaggerAppCompatActivity() {
   @Inject
   lateinit var viewModelFactory: ViewModelProvider.Factory
   protected val binding: B by lazy {

@@ -32,8 +32,11 @@ import com.addhen.checkin.databinding.PostsFragmentBinding
 class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
     clazz = PostsViewModel::class.java) {
 
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                            savedInstanceState: Bundle?): View? {
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
     binding = PostsFragmentBinding.inflate(layoutInflater, container, false)
     return binding.root
   }

@@ -22,8 +22,10 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 
 fun View.snackbar(
-    text: String, length: Int = BaseTransientBottomBar.LENGTH_LONG,
-    func: Snackbar.() -> Unit = {}) {
+  text: String,
+  length: Int = BaseTransientBottomBar.LENGTH_LONG,
+  func: Snackbar.() -> Unit = {}
+) {
   val snackbar = Snackbar.make(this, text, length)
   snackbar.func()
   snackbar.show()

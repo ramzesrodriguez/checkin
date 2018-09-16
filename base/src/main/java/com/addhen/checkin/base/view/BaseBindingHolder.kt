@@ -9,9 +9,9 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
 open class BaseBindingHolder<out T : ViewDataBinding>(
-    context: Context,
-    parent: ViewGroup,
-    @LayoutRes layoutResId: Int
+  context: Context,
+  parent: ViewGroup,
+  @LayoutRes layoutResId: Int
 ) : RecyclerView.ViewHolder(
     LayoutInflater.from(context).inflate(layoutResId, parent, false)
 ) {

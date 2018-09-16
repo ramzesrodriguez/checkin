@@ -55,7 +55,7 @@ fun BottomNavigationView.disableShiftMode() {
       topMargin.setInt(item, 0)
       topMargin.isAccessible = false
 
-      //item.setShiftingMode(false)
+      // item.setShiftingMode(false)
       // set once again checked value, so view will be updated
 
       item.setChecked(item.itemData.isChecked)

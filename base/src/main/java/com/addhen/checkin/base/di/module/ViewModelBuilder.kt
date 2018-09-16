@@ -26,5 +26,6 @@ abstract class ViewModelBuilder {
 
   @Binds
   abstract fun viewModelFactory(
-      factory: ViewModelFactory): ViewModelProvider.Factory
+    factory: ViewModelFactory
+  ): ViewModelProvider.Factory
 }

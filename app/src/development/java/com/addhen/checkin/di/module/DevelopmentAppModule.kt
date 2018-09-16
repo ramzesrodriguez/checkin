@@ -1,8 +1,7 @@
-package com.addhen.checkin.di
+package com.addhen.checkin.di.module
 
 import com.addhen.checkin.data.repository.PostDataRepository
 import com.addhen.checkin.data.repository.PostRepository
-import com.addhen.checkin.di.module.AppModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

@@ -32,8 +32,8 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class PostsViewModel @Inject constructor(
-    private val dispatchers: CoroutineDispatchers,
-    private val postDataRepository: PostDataRepository
+  private val dispatchers: CoroutineDispatchers,
+  private val postDataRepository: PostDataRepository
 ) : BaseViewModel(dispatchers), LifecycleObserver {
 
   val posts = MutableLiveData<Resource<List<PostItemViewModel>>>()

@@ -1,9 +1,10 @@
 package com.addhen.checkin.base
 
 class Resource<out T>(
-    val status: Status = Status.LOADING,
-    val message: String? = null,
-    val data: T? = null) {
+  val status: Status = Status.LOADING,
+  val message: String? = null,
+  val data: T? = null
+) {
 
   companion object {
 

@@ -95,8 +95,8 @@ class MainActivity : BaseActivity<MainActivityViewModel, MainActivityBinding>(
 
   private fun initFragments(savedInstanceState: Bundle?) {
     val manager = supportFragmentManager
-    //postsFragment = PostsFragment.newInstance()
-    //savedInstanceState?.run { switchFragment(postsFragment, PostsFragment.TAG) }
+    // postsFragment = PostsFragment.newInstance()
+    // savedInstanceState?.run { switchFragment(postsFragment, PostsFragment.TAG) }
   }
 
   private fun switchFragment(@NonNull fragment: Fragment, @NonNull tag: String): Boolean {

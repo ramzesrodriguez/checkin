@@ -34,5 +34,6 @@ abstract class MainBuilder {
   @IntoMap
   @ViewModelKey(MainActivityViewModel::class)
   abstract fun mainActivityViewModel(
-      mainActivityViewModel: MainActivityViewModel): ViewModel
+    mainActivityViewModel: MainActivityViewModel
+  ): ViewModel
 }

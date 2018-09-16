@@ -31,14 +31,16 @@ class Navigation @Inject constructor(activity: AppCompatActivity) {
     this.activity = activity
   }
 
-  fun navigateToPostDetails(@NonNull post: Post,
-                            @Nullable parentClass: Class<out Activity>) {
-    //activity.startActivity(PostDetailsActivity.createIntent(activity, parentClass, post.key))
+  fun navigateToPostDetails(
+    @NonNull post: Post,
+    @Nullable parentClass: Class<out Activity>
+  ) {
+    // activity.startActivity(PostDetailsActivity.createIntent(activity, parentClass, post.key))
   }
 
   fun navigateToUserProfile() {
-    //val intent = UserProfileActivity.createIntent(activity, MainActivity::class.java)
-    //activity.startActivity(intent)
+    // val intent = UserProfileActivity.createIntent(activity, MainActivity::class.java)
+    // activity.startActivity(intent)
   }
 
   /* fun toLogin() {

@@ -27,9 +27,10 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 abstract class BaseFragment<out T : BaseViewModel, B : ViewDataBinding>(
-    @MenuRes
-    private val menu: Int = 0,
-    clazz: Class<T>) : DaggerFragment() {
+  @MenuRes
+  private val menu: Int = 0,
+  clazz: Class<T>
+) : DaggerFragment() {
 
   @Inject
   lateinit var viewModelFactory: ViewModelProvider.Factory
