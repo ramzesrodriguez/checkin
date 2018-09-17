@@ -18,9 +18,9 @@
 package com.addhen.checkin.data.model
 
 data class UserProfile(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val posts: Map<String, Boolean>,
-    val following: Map<String, Any>
+  val id: String,
+  val fullName: String,
+  val photoUrl: String,
+  val posts: Map<String, Boolean>,
+  val following: Map<String, Any>
 )

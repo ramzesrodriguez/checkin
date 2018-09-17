@@ -2,7 +2,6 @@ plugins {
   id("com.android.library")
   id("kotlin-android")
   id("kotlin-kapt")
-  id("org.jlleitschuh.gradle.ktlint") version Versions.KTLINT_GRADLE
 }
 
 android {
@@ -26,10 +25,4 @@ dependencies {
 
 kapt {
   useBuildCache = true
-}
-
-ktlint {
-  version = Versions.KTLINT
-  android = true
-  ignoreFailures = false
 }

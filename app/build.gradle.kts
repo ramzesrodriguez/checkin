@@ -2,7 +2,6 @@ plugins {
   id("com.android.application")
   id("kotlin-android")
   id("kotlin-kapt")
-  id("org.jlleitschuh.gradle.ktlint") version Versions.KTLINT_GRADLE
   id("com.google.gms.google-services") apply false
 }
 
@@ -89,12 +88,5 @@ dependencies {
 kapt {
   useBuildCache = true
 }
-
-ktlint {
-  version = Versions.KTLINT
-  android = true
-  ignoreFailures = false
-}
-
 // MUST BE AT THE BOTTOM
 apply(mapOf("plugin" to "com.google.gms.google-services"))

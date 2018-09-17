@@ -18,8 +18,9 @@
 package com.addhen.checkin.data.model
 
 data class User(
-    val id: String,
-    val fullName: String,
-    val photoUrl: String,
-    val email: String,
-    val username: String)
+  val id: String,
+  val fullName: String,
+  val photoUrl: String,
+  val email: String,
+  val username: String
+)
