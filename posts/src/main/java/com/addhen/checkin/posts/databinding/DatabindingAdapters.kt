@@ -55,7 +55,7 @@ private fun setImageUrlWithSize(
   }
   val size = Math.round(sizeInDimen)
   imageView.background = ContextCompat.getDrawable(
-      imageView.context, R.drawable.shap_circle_border_grey200
+      imageView.context, R.drawable.shape_circle_border_grey200
   )
   /*GlideApp.with(imageView.context)
       .load(imageUrl)
