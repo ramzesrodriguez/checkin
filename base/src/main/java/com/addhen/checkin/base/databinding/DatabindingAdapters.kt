@@ -77,7 +77,7 @@ private fun setImageUrlWithSize(
     return
   }
   imageView.background = ContextCompat.getDrawable(
-      imageView.context, R.drawable.shap_circle_border_grey200
+      imageView.context, R.drawable.shape_circle_border_grey200
   )
   // val size = Math.round(sizeInDimen)
   /*GlideApp.with(imageView.context)
