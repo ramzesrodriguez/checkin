@@ -17,13 +17,14 @@
 
 package com.addhen.checkin
 
-import com.hellofresh.barcodescanner.presentation.di.component.DaggerAppComponent
+import com.addhen.checkin.di.component.DaggerAppComponent
 import dagger.android.support.DaggerApplication
 import javax.inject.Inject
 
 open class CheckinApp : DaggerApplication() {
 
-  @Inject lateinit var appUtilities: AppUtilities
+  @Inject
+  lateinit var appUtilities: AppUtilities
 
   override fun onCreate() {
     super.onCreate()

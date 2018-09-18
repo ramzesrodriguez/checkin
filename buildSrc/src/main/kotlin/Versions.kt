@@ -2,13 +2,13 @@ object Versions {
   const val APPLICATION_ID = "com.addhen.checkin"
   const val KOTLIN = "1.3-M2"
   const val GRADLE_PLUGIN = "3.2.0-rc03"
-  const val KTLINT_GRADLE = "3.0.0"
+  const val KTLINT_GRADLE = "5.1.0"
   const val DETEKT = "1.0.0.RC6-3"
   const val SOURCE_COMPATIBILITY = "1.8"
   const val COMPILE_SDK = 28
   const val MIN_SDK = 23
   const val TARGET_SDK = 28
-  const val KTLINT = "0.15.0"
+  const val KTLINT = "0.28.0"
   const val GOOGLE_SERVICES = "3.2.0"
   internal const val SUPPORT_LIBRARY = "1.0.0-alpha1"
   internal const val CONSTRAINT_LAYOUT = "1.1.0"

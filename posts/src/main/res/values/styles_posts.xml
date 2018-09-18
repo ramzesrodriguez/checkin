@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="MetaTextCaption.IconText">
+    <item name="android:textSize">@dimen/text_14sp</item>
+  </style>
+
+  <style name="PostTitle">
+    <item name="android:textAppearance">@style/TextCaption</item>
+  </style>
+</resources>

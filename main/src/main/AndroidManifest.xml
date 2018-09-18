@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.addhen.checkin.main">
+  <application>
+    <activity android:name="com.addhen.checkin.main.view.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      <intent-filter android:autoVerify="true">
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <action android:name="android.intent.action.VIEW"/>
+        <data android:scheme="http"/>
+        <data android:scheme="https"/>
+        <data android:scheme="s-urn"/>
+        <data android:host="com.addhen.checkin"/>
+        <data android:path="/main"/>
+      </intent-filter>
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.addhen.checkin.main.view.MainActivity"/>
+    </activity>
+  </application>
+</manifest>

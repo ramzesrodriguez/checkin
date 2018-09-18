@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Posts -->
+  <string name="posts_load_failed">Failed to load posts.</string>
+  <string name="posts">Posts</string>
+  <string name="post_details">Post Details</string>
+  <string name="add_post">Add Post</string>
+  <plurals name="likes_count">
+    <item quantity="one">%d like</item>
+    <item quantity="other">%d likes</item>
+  </plurals>
+  <string name="empty_post_list">No posts yet.</string>
+</resources>

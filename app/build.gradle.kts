@@ -1,10 +1,7 @@
-import org.jlleitschuh.gradle.ktlint.ReporterType
-
 plugins {
   id("com.android.application")
   id("kotlin-android")
   id("kotlin-kapt")
-  id("org.jlleitschuh.gradle.ktlint") version Versions.KTLINT_GRADLE
   id("com.google.gms.google-services") apply false
 }
 
@@ -68,22 +65,14 @@ android {
 }
 
 dependencies {
-  api(project(":data"))
-  // Support library
-  implementation(Dependencies.Support.design)
-  implementation(Dependencies.Support.recyclerView)
-  implementation(Dependencies.Support.customtabs)
-  implementation(Dependencies.Support.cardview)
-  implementation(Dependencies.Support.constraintLayout)
-  implementation(Dependencies.ktx)
+  implementation(project(":data"))
+  implementation(project(":main"))
   // Firebase
   implementation(Dependencies.Firebase.uiAuth)
   implementation(Dependencies.Firebase.crash)
   // Google maps
   implementation(Dependencies.Map.google)
   implementation(Dependencies.Map.utils)
-  implementation(Dependencies.Glide.core)
-  implementation(Dependencies.Glide.okhttp3)
   // Annotation processors
   kapt(Dependencies.Databinding.compiler)
   kapt(Dependencies.Dagger.compiler)
@@ -99,13 +88,5 @@ dependencies {
 kapt {
   useBuildCache = true
 }
-
-ktlint {
-  version = Versions.KTLINT
-  android = true
-  reporter = ReporterType.CHECKSTYLE
-  ignoreFailures = false
-}
-
 // MUST BE AT THE BOTTOM
 apply(mapOf("plugin" to "com.google.gms.google-services"))

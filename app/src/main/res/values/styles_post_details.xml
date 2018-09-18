@@ -8,12 +8,12 @@
     <item name="android:background">?selectableItemBackgroundBorderless</item>
   </style>
 
-  <style name="FloatLabelHint" parent="PostMetaTextCaption">
+  <style name="MetaTextCaption.FloatLabelHint">
     <item name="android:textSize">@dimen/text_14sp</item>
     <item name="android:textColor">?colorAccent</item>
   </style>
 
-  <style name="PostDetailsEmptyView" parent="BaseEmptyView">
+  <style name="BaseEmptyView.PostDetailsEmptyView">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
   </style>
