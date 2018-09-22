@@ -6,7 +6,7 @@ object Dependencies {
 
   object Kotlin {
     val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.KOTLIN}"
-    val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.26.0-eap13"
+    val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.26.1-eap13"
   }
 
   object Support {
