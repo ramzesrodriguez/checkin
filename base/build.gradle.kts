@@ -3,6 +3,7 @@ import org.gradle.api.JavaVersion.VERSION_1_8
 plugins {
   id("com.android.library")
   id("kotlin-android")
+  id("androidx.navigation.safeargs")
 }
 
 android {
@@ -19,12 +20,14 @@ android {
 dependencies {
   api(Dependencies.Kotlin.stdLib)
   api(Dependencies.Kotlin.coroutines)
-  // Support library
-  api(Dependencies.Support.design)
-  api(Dependencies.Support.recyclerView)
-  api(Dependencies.Support.customtabs)
-  api(Dependencies.Support.cardview)
-  api(Dependencies.Support.constraintLayout)
+  // AndroidX
+  api(Dependencies.AndroidX.Support.design)
+  api(Dependencies.AndroidX.Support.recyclerView)
+  api(Dependencies.AndroidX.Support.customtabs)
+  api(Dependencies.AndroidX.Support.cardview)
+  api(Dependencies.AndroidX.Support.constraintLayout)
+  api(Dependencies.AndroidX.Navigation.fragment)
+  api(Dependencies.AndroidX.Navigation.ui)
   api(Dependencies.ktx)
   api(Dependencies.Glide.core)
   api(Dependencies.Glide.okhttp3)

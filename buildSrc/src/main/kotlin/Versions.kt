@@ -10,6 +10,7 @@ object Versions {
   const val TARGET_SDK = 28
   const val KTLINT = "0.28.0"
   const val GOOGLE_SERVICES = "3.2.0"
+  const val NAVIGATION = "1.0.0-alpha06"
   internal const val SUPPORT_LIBRARY = "1.0.0-alpha1"
   internal const val CONSTRAINT_LAYOUT = "1.1.0"
   internal const val LEAK_CANARY = "1.6.1"

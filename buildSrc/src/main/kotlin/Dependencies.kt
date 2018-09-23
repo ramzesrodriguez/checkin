@@ -9,13 +9,24 @@ object Dependencies {
     val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.26.1-eap13"
   }
 
-  object Support {
-    val design = "com.google.android.material:material:${Versions.SUPPORT_LIBRARY}"
-    val recyclerView = "androidx.recyclerview:recyclerview:${Versions.SUPPORT_LIBRARY}"
-    val customtabs = "androidx.browser:browser:${Versions.SUPPORT_LIBRARY}"
-    val cardview = "androidx.cardview:cardview:${Versions.SUPPORT_LIBRARY}"
-    val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
+  object AndroidX {
+
+    object Navigation {
+      // TODO: Replace with androidx artifacts once they're released
+      val fragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+      val ui = "android.arch.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
+    }
+
+
+    object Support {
+      val design = "com.google.android.material:material:${Versions.SUPPORT_LIBRARY}"
+      val recyclerView = "androidx.recyclerview:recyclerview:${Versions.SUPPORT_LIBRARY}"
+      val customtabs = "androidx.browser:browser:${Versions.SUPPORT_LIBRARY}"
+      val cardview = "androidx.cardview:cardview:${Versions.SUPPORT_LIBRARY}"
+      val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
+    }
   }
+
 
   object Lifecycle {
     val runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.ARCH_COMPONENTS}"
