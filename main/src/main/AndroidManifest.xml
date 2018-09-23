@@ -13,7 +13,7 @@
         <data android:scheme="http"/>
         <data android:scheme="https"/>
         <data android:scheme="s-urn"/>
-        <data android:host="com.addhen.checkin"/>
+        <data android:host="check.addhen.com"/>
         <data android:path="/main"/>
       </intent-filter>
       <meta-data

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main_nav_graph"
+            app:startDestination="@id/menu_list">
+
+  <fragment android:id="@+id/menu_list"
+            android:name="com.addhen.checkin.posts.view.PostsFragment"
+            android:label="@string/bottom_nav_menu_list"
+            tools:layout="@layout/posts_fragment"/>
+
+  <fragment android:id="@+id/menu_map"
+            android:name="com.addhen.checkin.posts.view.PostsFragment"
+            android:label="@string/bottom_nav_menu_map"
+            tools:layout="@layout/posts_fragment"/>
+  <deepLink app:uri="https://checkin.addhen.com/main"
+            android:autoVerify="true"/>
+</navigation>
