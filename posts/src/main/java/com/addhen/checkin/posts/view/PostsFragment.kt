@@ -21,6 +21,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,9 +35,9 @@ class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
 ) {
 
   override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
   ): View? {
     binding = PostsFragmentBinding.inflate(layoutInflater, container, false)
     return binding.root
@@ -59,17 +60,16 @@ class PostsFragment : BaseFragment<PostsViewModel, PostsFragmentBinding>(
         Resource.Status.SUCCESS -> {
           binding.swipeRefreshLayout.isRefreshing = false
           val list = viewModel.posts.value?.data ?: emptyList()
-          val visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
-          binding.emptyViewHeader.visibility = visibility
+          binding.emptyViewHeader.isVisible = list.isEmpty()
           postsAdapter.reset(list)
         }
         Resource.Status.LOADING -> {
           binding.swipeRefreshLayout.isRefreshing = true
-          binding.emptyViewHeader.visibility = View.GONE
+          binding.emptyViewHeader.isVisible = false
         }
         else -> {
-          binding.loadingProgressBar.visibility = View.GONE
-          binding.emptyViewHeader.visibility = View.GONE
+          binding.loadingProgressBar.isVisible = false
+          binding.emptyViewHeader.isVisible = false
           binding.postRootFramelayout.snackbar(viewModel.posts.value?.message!!)
         }
       }
