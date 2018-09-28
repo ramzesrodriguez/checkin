@@ -1,7 +1,7 @@
 object Versions {
   const val APPLICATION_ID = "com.addhen.checkin"
   const val KOTLIN = "1.3.0-rc-57"
-  const val GRADLE_PLUGIN = "3.2.0-rc03"
+  const val GRADLE_PLUGIN = "3.2.0"
   const val KTLINT_GRADLE = "5.1.0"
   const val DETEKT = "1.0.0.RC6-3"
   const val SOURCE_COMPATIBILITY = "1.8"
