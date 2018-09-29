@@ -11,6 +11,14 @@ android {
   defaultConfig {
     minSdkVersion(Versions.MIN_SDK)
     targetSdkVersion(Versions.TARGET_SDK)
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments = mapOf("room.schemaLocation" to "$projectDir/schemas")
+      }
+    }
+    sourceSets {
+      getByName("androidTest").assets.srcDirs("$projectDir/schemas")
+    }
   }
   lintOptions {
     disable("GradleCompatible")
