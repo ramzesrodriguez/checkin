@@ -25,7 +25,7 @@ import com.addhen.checkin.base.CoroutineDispatchers
 import com.addhen.checkin.base.Resource
 import com.addhen.checkin.base.view.BaseViewModel
 import com.addhen.checkin.data.model.Post
-import com.addhen.checkin.data.repository.PostDataRepository
+import com.addhen.checkin.data.repository.post.PostDataRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber

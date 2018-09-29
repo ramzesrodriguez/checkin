@@ -15,13 +15,24 @@
  *
  */
 
-package com.addhen.checkin.data.repository
+package com.addhen.checkin.data.repository.post
 
 import com.addhen.checkin.data.model.Post
+import javax.inject.Inject
+import javax.inject.Singleton
 
-interface PostRepository {
+@Singleton
+class PostDataRepository @Inject constructor() : PostRepository {
 
-  suspend fun getPosts(limit: Int, page: Int): List<Post>
+  suspend fun getPosts() = getPosts(10, 0)
 
-  suspend fun getPost(id: String): Post
+  override suspend fun getPosts(limit: Int, page: Int): List<Post> {
+    // TODO get data from a data source
+    return emptyList()
+  }
+
+  override suspend fun getPost(id: String): Post {
+    // TODO get data from a data source
+    TODO()
+  }
 }
