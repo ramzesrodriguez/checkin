@@ -17,13 +17,18 @@ object Dependencies {
       val ui = "android.arch.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     }
 
-
     object Support {
       val design = "com.google.android.material:material:${Versions.SUPPORT_LIBRARY}"
       val recyclerView = "androidx.recyclerview:recyclerview:${Versions.SUPPORT_LIBRARY}"
       val customtabs = "androidx.browser:browser:${Versions.SUPPORT_LIBRARY}"
       val cardview = "androidx.cardview:cardview:${Versions.SUPPORT_LIBRARY}"
       val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
+    }
+
+    object Room {
+      val runtime = "androidx.room:room-runtime:${Versions.ROOM}"
+      val compiler = "androidx.room:room-compiler:${Versions.ROOM}"
+      val test = "androidx.room:room-testing:${Versions.ROOM}"
     }
   }
 

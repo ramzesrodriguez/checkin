@@ -19,6 +19,8 @@ android {
 
 dependencies {
   api(project(":base"))
+  implementation(Dependencies.AndroidX.Room.runtime)
+  kapt(Dependencies.AndroidX.Room.compiler)
   kapt(Dependencies.Databinding.compiler)
   testImplementation(Dependencies.junit)
 }
