@@ -22,17 +22,15 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PostDataRepository @Inject constructor() : PostRepository {
+class PostDataRepository @Inject constructor(val local: LocalDataSource) : PostRepository {
 
   suspend fun getPosts() = getPosts(10, 0)
 
   override suspend fun getPosts(limit: Int, page: Int): List<Post> {
-    // TODO get data from a data source
-    return emptyList()
+    return local.getPosts(limit, page)
   }
 
   override suspend fun getPost(id: String): Post {
-    // TODO get data from a data source
-    TODO()
+    return local.getPost(id)
   }
 }
