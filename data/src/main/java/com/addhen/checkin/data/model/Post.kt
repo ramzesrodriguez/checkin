@@ -17,15 +17,17 @@
 
 package com.addhen.checkin.data.model
 
+import androidx.room.ColumnInfo
+import androidx.room.PrimaryKey
 import java.util.Date
 
-class Post(
-  val id: String,
-  val content: String,
-  val photo: String,
-  val location: Location,
-  val created: Date,
-  val likes: Long,
-  val like: Like,
-  val user: User
-)
+data class Post(
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") override val id: Long,
+    @ColumnInfo(name = "content") val content: String,
+    @ColumnInfo(name = "photo") val photo: String,
+    @ColumnInfo(name = "location") val location: Location,
+    @ColumnInfo(name = "created") val created: Date,
+    @ColumnInfo(name = "likes") val likes: Long,
+    @ColumnInfo(name = "like") val like: Like,
+    @ColumnInfo(name = "user") val user: User
+) : Model
