@@ -4,10 +4,11 @@ import androidx.room.*
 import com.addhen.checkin.data.model.Like
 import com.addhen.checkin.data.model.Location
 import com.addhen.checkin.data.model.User
+import com.addhen.checkin.data.room.entity.PostEntity.Companion.POSTS
 import java.util.Date
 
 @Entity(
-    tableName = "posts",
+    tableName = POSTS,
     indices = [
       Index(value = ["location_id"], unique = true),
       Index(value = ["like_id"], unique = true),
@@ -40,4 +41,9 @@ data class PostEntity(
     @ColumnInfo(name = "likes") val likes: Long,
     @ColumnInfo(name = "like_id") val like: Like,
     @ColumnInfo(name = "user_id") val user: User
-) : CheckinEntity
+) : CheckinEntity {
+
+  companion object {
+    const val POSTS = "posts"
+  }
+}
