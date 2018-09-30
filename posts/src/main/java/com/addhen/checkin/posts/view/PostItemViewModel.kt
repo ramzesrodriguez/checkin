@@ -19,7 +19,7 @@ package com.addhen.checkin.posts.view
 
 import com.addhen.checkin.base.CoroutineDispatchers
 import com.addhen.checkin.base.view.BaseViewModel
-import com.addhen.checkin.data.model.Post
+import com.addhen.checkin.data.room.entity.Post
 import javax.inject.Inject
 
 class PostItemViewModel @Inject constructor(
@@ -33,7 +33,7 @@ class PostItemViewModel @Inject constructor(
 
   fun isLiked(): Boolean {
     return if (post.like != null)
-      post.like.postId == post.id && post.user.id === post.like.userId
+      post.like.postId == post.id && post.user.id == post.like.userId
     else false
   }
 }

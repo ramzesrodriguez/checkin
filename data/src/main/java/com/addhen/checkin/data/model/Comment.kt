@@ -19,4 +19,9 @@ package com.addhen.checkin.data.model
 
 import java.util.Date
 
-data class Comment(val content: String, val created: Date, val user: User)
+data class Comment(
+  override val id: Long,
+  val content: String,
+  val created: Date,
+  val user: User
+) : Model

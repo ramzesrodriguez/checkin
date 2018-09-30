@@ -18,8 +18,9 @@
 package com.addhen.checkin.data.model
 
 data class Location(
+  override val id: Long,
   val latitude: Double,
   val longitude: Double,
   val name: String,
   val country: String
-)
+) : Model

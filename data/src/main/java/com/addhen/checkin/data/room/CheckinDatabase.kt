@@ -22,7 +22,7 @@ abstract class CheckinDatabase : RoomDatabase() {
     private const val DB_NAME = "checkin_app.db"
 
     fun createPersistentDatabase(
-        context: Context
+      context: Context
     ): CheckinDatabase = Room.databaseBuilder(
         context.applicationContext,
         CheckinDatabase::class.java,

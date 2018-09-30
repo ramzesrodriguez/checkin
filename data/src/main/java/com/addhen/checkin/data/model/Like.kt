@@ -17,4 +17,8 @@
 
 package com.addhen.checkin.data.model
 
-data class Like(val postId: String, val userId: String)
+data class Like(
+  override val id: Long,
+  val postId: Long,
+  val userId: Long
+) : Model

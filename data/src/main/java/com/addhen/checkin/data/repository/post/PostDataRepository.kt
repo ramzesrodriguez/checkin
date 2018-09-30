@@ -19,7 +19,7 @@ package com.addhen.checkin.data.repository.post
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.addhen.checkin.data.room.entity.PostEntity
+import com.addhen.checkin.data.room.entity.Post
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -28,12 +28,12 @@ class PostDataRepository @Inject constructor(val local: LocalDataSource) : PostR
 
   suspend fun getPosts() = getPosts(10, 0)
 
-  override fun getPosts(limit: Int, page: Int): LiveData<List<PostEntity>> {
+  override fun getPosts(limit: Int, page: Int): LiveData<List<Post>> {
     return local.getPosts(limit, page)
   }
 
   @WorkerThread
-  override suspend fun getPost(id: Long): PostEntity {
+  override suspend fun getPost(id: Long): Post {
     return local.getPost(id)
   }
 }

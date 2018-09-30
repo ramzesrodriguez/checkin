@@ -19,12 +19,12 @@ package com.addhen.checkin.data.repository.post
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.addhen.checkin.data.room.entity.PostEntity
+import com.addhen.checkin.data.room.entity.Post
 
 interface PostRepository {
 
-  fun getPosts(limit: Int, page: Int): LiveData<List<PostEntity>>
+  fun getPosts(limit: Int, page: Int): LiveData<List<Post>>
 
   @WorkerThread
-  suspend fun getPost(id: Long): PostEntity
+  suspend fun getPost(id: Long): Post
 }
