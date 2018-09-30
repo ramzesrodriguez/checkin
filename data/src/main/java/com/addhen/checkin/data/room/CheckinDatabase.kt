@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.addhen.checkin.data.model.Post
 import com.addhen.checkin.data.room.dao.PostDao
-import com.addhen.checkin.data.room.entity.PostEntity
 
 @Database(
-    entities = [PostEntity::class],
+    entities = [Post::class],
     version = 1
 )
 @TypeConverters(CheckinTypeConverters::class)

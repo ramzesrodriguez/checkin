@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.OnConflictStrategy
-import com.addhen.checkin.data.room.entity.Post
-import com.addhen.checkin.data.room.entity.Post.Companion.POSTS
+import com.addhen.checkin.data.model.Post
+import com.addhen.checkin.data.model.Post.Companion.POSTS
 
 @Dao
 abstract class PostDao {
