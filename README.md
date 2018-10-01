@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/eyedol/checkin.svg?branch=master)](https://travis-ci.org/eyedol/checkin)
 
-# Check-In - Work In Progress
+<h1 align=center>
+<img src="art/logo/horizontal.png" width=40%>
+</h1>
 
 A free and open source Android app for posting your current update to your followers. It uses an approximation of your current location and plots it on a map. You can also see your followers recently updated statuses.
  
